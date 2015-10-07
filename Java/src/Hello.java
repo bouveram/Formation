@@ -56,6 +56,7 @@ public class Hello {
 	    display(remove(tab2,3));
 	    System.out.println("insert : ");
 	    display(insert(tab2,1,99));
+	    
 	}
 	
 	/**********************************/
