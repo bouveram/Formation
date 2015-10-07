@@ -57,6 +57,18 @@ public class Hello {
 	    System.out.println("insert : ");
 	    display(insert(tab2,1,99));
 	    
+	    Book premierLivre = new Book();
+	    Book deuxiemeLivre = new Book();
+	    premierLivre.title = "Java";
+	    deuxiemeLivre.title = premierLivre.title;
+	    System.out.println(premierLivre.title);
+	    //deuxiemeLivre = premierLivre;
+	    
+	    if(premierLivre == deuxiemeLivre)
+	    	System.out.println("c'est les mêmes livres");
+	    else
+	    	System.out.println("c'est pas les mêmes livres");
+	    
 	}
 	
 	/**********************************/
