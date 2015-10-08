@@ -59,9 +59,9 @@ public class Hello {
 	    
 	    Book premierLivre = new Book();
 	    Book deuxiemeLivre = new Book();
-	    premierLivre.title = "Java";
-	    deuxiemeLivre.title = premierLivre.title;
-	    System.out.println(premierLivre.title);
+	    premierLivre.setTitle("Java");
+	    deuxiemeLivre.setTitle( premierLivre.getTitle() );
+	    System.out.println(premierLivre.getTitle());
 	    //deuxiemeLivre = premierLivre;
 	    
 	    if(premierLivre == deuxiemeLivre)
