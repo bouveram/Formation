@@ -1,3 +1,5 @@
+package com.m2i.formation.media;
+
 import java.util.Date;
 
 public class Book {

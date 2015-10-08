@@ -1,5 +1,8 @@
 import java.util.Random;
 
+import com.m2i.formation.geometry.Counter;
+import com.m2i.formation.media.*;
+
 public class Hello {
 
 	public static void main(String[] args) {
@@ -108,7 +111,7 @@ public class Hello {
 	    
 	    System.out.println(Counter.increment());
 	    
-	    premierLivre.setCategory(BookCategory.Novel);
+	    premierLivre.setCategory(BookCategory.NOVEL);
 	    System.out.println(premierLivre.getCategory());
 	    
 	}

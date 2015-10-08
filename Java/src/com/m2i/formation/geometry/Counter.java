@@ -1,3 +1,4 @@
+package com.m2i.formation.geometry;
 
 public class Counter {
 	
