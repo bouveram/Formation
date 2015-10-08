@@ -60,9 +60,16 @@ public class Hello {
 	    Book premierLivre = new Book();
 	    Book deuxiemeLivre = new Book();
         Editor editeur = new Editor();
+        editeur.setName("Edition M2i");
+        
 	    premierLivre.setTitle("Java");
+	    premierLivre.setPublisher(editeur);
+	    
 	    deuxiemeLivre.setTitle( premierLivre.getTitle() );
+	    
 	    System.out.println(premierLivre.getTitle());
+	    System.out.println("nom de l'editeur : "+ premierLivre.getPublisher().getName() );
+	    
 	    //deuxiemeLivre = premierLivre;
 	    
 	    if(premierLivre == deuxiemeLivre)
