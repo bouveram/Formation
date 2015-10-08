@@ -104,9 +104,11 @@ public class Book {
 	public void setPublisher(Editor publisher) {
 		this.publisher = publisher;
 	}
+	public int getNbAuthor() {
+		return nbAuthor;
+	}
 	public void addAuthor(Author author) {
-		this.authors[nbAuthor] = author;
-		nbAuthor++;
+		this.authors[nbAuthor++] = author;
 	}
 	public void displayAuthor() {
 		if(nbAuthor != 0) {
