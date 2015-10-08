@@ -59,6 +59,7 @@ public class Hello {
 	    
 	    Book premierLivre = new Book();
 	    Book deuxiemeLivre = new Book();
+        Editor editeur = new Editor();
 	    premierLivre.setTitle("Java");
 	    deuxiemeLivre.setTitle( premierLivre.getTitle() );
 	    System.out.println(premierLivre.getTitle());

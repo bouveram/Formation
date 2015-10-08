@@ -9,6 +9,7 @@ public class Book {
 	private String isbn;
 	private double price;
 	private String lang;
+	private Editor publisher;
 	
 	/**
 	 * @return the title
@@ -94,5 +95,13 @@ public class Book {
 	public void setLang(String lang) {
 		this.lang = lang;
 	}
+	
+	public Editor getPublisher() {
+		return publisher;
+	}
+	public void setPublisher(Editor publisher) {
+		this.publisher = publisher;
+	}
+	
 	
 }
