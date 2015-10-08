@@ -109,6 +109,7 @@ public class Hello {
 	    System.out.println(Counter.increment());
 	    
 	    premierLivre.setCategory(BookCategory.Novel);
+	    System.out.println(premierLivre.getCategory());
 	    
 	}
 	
