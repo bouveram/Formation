@@ -62,13 +62,33 @@ public class Hello {
         Editor editeur = new Editor();
         editeur.setName("Edition M2i");
         
+        Author guillaume = new Author();
+        Author arthur = new Author();
+        Author maurice = new Author();
+        
+        guillaume.setFirstName("Guillaume");
+        guillaume.setLastName("Tel");
+        
+        arthur.setFirstName("Arthur");
+        arthur.setLastName("Le Roi");
+        
+        maurice.setFirstName("Maurice");
+        maurice.setLastName("Momo");
+        
 	    premierLivre.setTitle("Java");
 	    premierLivre.setPublisher(editeur);
 	    
-	    deuxiemeLivre.setTitle( premierLivre.getTitle() );
+	    premierLivre.addAuthor(arthur);
+	    premierLivre.addAuthor(guillaume);
+	    
+	    deuxiemeLivre.addAuthor(maurice);
 	    
 	    System.out.println(premierLivre.getTitle());
 	    System.out.println("nom de l'editeur : "+ premierLivre.getPublisher().getName() );
+	    
+	    deuxiemeLivre.setTitle( premierLivre.getTitle() );
+	    
+	    premierLivre.displayAuthor();	    
 	    
 	    //deuxiemeLivre = premierLivre;
 	    

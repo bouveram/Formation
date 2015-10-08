@@ -10,6 +10,8 @@ public class Book {
 	private double price;
 	private String lang;
 	private Editor publisher;
+	private Author[] authors = new Author[10];
+	private int nbAuthor = 0;
 	
 	/**
 	 * @return the title
@@ -102,6 +104,20 @@ public class Book {
 	public void setPublisher(Editor publisher) {
 		this.publisher = publisher;
 	}
-	
+	public void addAuthor(Author author) {
+		this.authors[nbAuthor] = author;
+		nbAuthor++;
+	}
+	public void displayAuthor() {
+		if(nbAuthor != 0) {
+			System.out.println("Contributor :");
+			for(int i = 0; i< nbAuthor ; i++) {
+				System.out.println(authors[i].getFirstName()+" "+authors[i].getLastName());
+			}
+		}
+		else {
+			System.out.println("No author for now !");
+		}
+	}
 	
 }
