@@ -97,6 +97,17 @@ public class Hello {
 	    else
 	    	System.out.println("c'est pas les mêmes livres");
 	    
+	    Counter c1 = new Counter();
+	    System.out.println(c1.increment());
+	    System.out.println(c1.increment());
+	    System.out.println(c1.increment());
+	    Counter c2 = new Counter();
+	    System.out.println(c2.increment());
+	    System.out.println(c2.increment());
+	    System.out.println(c2.increment());
+	    
+	    System.out.println(Counter.increment());
+	    
 	}
 	
 	/**********************************/
