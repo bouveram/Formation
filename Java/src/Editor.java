@@ -35,6 +35,13 @@ public class Editor {
 	public void setSiretNb(String siretNb) {
 		this.siretNb = siretNb;
 	}
+	
+	/*
+	 * Affiche des infos spécifiques lors du debugage
+	 */
+	public String toString() {
+		return "Editor "+name;
+	}
 
 	
 }
