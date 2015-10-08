@@ -12,7 +12,14 @@ public class Book {
 	private Editor publisher;
 	private Author[] authors = new Author[10];
 	private int nbAuthor = 0;
+	private BookCategory category;
 	
+	public BookCategory getCategory() {
+		return category;
+	}
+	public void setCategory(BookCategory category) {
+		this.category = category;
+	}
 	/**
 	 * @return the title
 	 */
