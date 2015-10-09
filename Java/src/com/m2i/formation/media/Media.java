@@ -36,6 +36,10 @@ public class Media extends Item {
 		this.date = date;
 	}
 	
+	public double getVATPrice(){
+		return getPrice()*1.2;
+	}
+	
 	public int getNbAuthor() {
 		return nbAuthor;
 	}

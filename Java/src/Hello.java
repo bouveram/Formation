@@ -114,10 +114,16 @@ public class Hello {
 	    premierLivre.setCategory(BookCategory.NOVEL);
 	    System.out.println(premierLivre.getCategory());
 	    
-	    
 	    Point3D p3d = new Point3D();
 	    p3d.setX(8);
 	    
+	    Media b2 = new Book();
+	    b2.setPrice(100.0);
+	    Book b3 = (Book)b2; //Permet de retrouver le nombre de pages
+	    b3.getNbPage();
+	    //ou :
+	    int nbPage = ((Book)b2).getNbPage();
+	    System.out.println(b2.getVATPrice());
 	}
 	
 	/**********************************/

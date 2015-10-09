@@ -30,5 +30,10 @@ public class Book extends Media {
 	public void setCategory(BookCategory category) {
 		this.category = category;
 	}
+	
+	@Override
+	public double getVATPrice(){
+		return getPrice()*1.05;
+	}
 		
 }
