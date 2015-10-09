@@ -81,10 +81,16 @@ public class Hello {
 	    premierLivre.setTitle("Java");
 	    premierLivre.setPublisher(editeur);
 	    
-	    premierLivre.addAuthor(arthur);
-	    premierLivre.addAuthor(guillaume);
-	    
-	    deuxiemeLivre.addAuthor(maurice);
+	    //Gestion erreur
+	    try {
+			premierLivre.addAuthor(arthur);
+		    premierLivre.addAuthor(guillaume);
+		    
+		    deuxiemeLivre.addAuthor(maurice);
+	    } catch (MediaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    
 	    System.out.println(premierLivre.getTitle());
 	    System.out.println("nom de l'editeur : "+ premierLivre.getPublisher().getName() );
