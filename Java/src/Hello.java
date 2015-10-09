@@ -1,6 +1,6 @@
 import java.util.Random;
 
-import com.m2i.formation.geometry.Counter;
+import com.m2i.formation.geometry.*;
 import com.m2i.formation.media.*;
 
 public class Hello {
@@ -100,19 +100,23 @@ public class Hello {
 	    else
 	    	System.out.println("c'est pas les mêmes livres");
 	    
-	    Counter c1 = new Counter();
+	    /*Counter c1 = new Counter();
 	    System.out.println(c1.increment());
 	    System.out.println(c1.increment());
 	    System.out.println(c1.increment());
 	    Counter c2 = new Counter();
 	    System.out.println(c2.increment());
 	    System.out.println(c2.increment());
-	    System.out.println(c2.increment());
+	    System.out.println(c2.increment());*/
 	    
 	    System.out.println(Counter.increment());
 	    
 	    premierLivre.setCategory(BookCategory.NOVEL);
 	    System.out.println(premierLivre.getCategory());
+	    
+	    
+	    Point3D p3d = new Point3D();
+	    p3d.setX(8);
 	    
 	}
 	
