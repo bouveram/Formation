@@ -11,5 +11,10 @@ public class Dvd extends Media{
 	public void setNbChapitre(int nbChapitre) {
 		this.nbChapitre = nbChapitre;
 	}
+
+	@Override
+	public double getVATPrice() {
+		return getPrice()*1.2;
+	}
 	
 }

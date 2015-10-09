@@ -2,7 +2,7 @@ package com.m2i.formation.media;
 
 import java.util.Date;
 
-public class Media extends Item {
+public abstract class Media extends Item {
 	
 	private String title;
 	private String lang;
@@ -36,9 +36,7 @@ public class Media extends Item {
 		this.date = date;
 	}
 	
-	public double getVATPrice(){
-		return getPrice()*1.2;
-	}
+	public abstract double getVATPrice();
 	
 	public int getNbAuthor() {
 		return nbAuthor;

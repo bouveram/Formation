@@ -1,6 +1,7 @@
 package com.m2i.formation.media;
 
-public class Item {
+//Une class Abstract ne peut heriter que d'une classe abstract
+public abstract class Item {
 
 	private double price;
 	private int id;
