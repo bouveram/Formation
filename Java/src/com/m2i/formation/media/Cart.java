@@ -2,6 +2,11 @@ package com.m2i.formation.media;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class gérant un panier
+ * @author adminlocal
+ *
+ */
 public class Cart {
 
 	private List<Media> medias = new ArrayList<Media>();
