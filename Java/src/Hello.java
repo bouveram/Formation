@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
@@ -148,6 +150,17 @@ public class Hello {
 	    for(Book b:set){
 	    	System.out.println(b.getName());
 	    }
+	    System.out.println();
+	    Map<Integer,Book> map = new HashMap<Integer,Book>();
+	    map = new CollectionTest().mapTest();
+	    Book b = map.get(1);
+	    for(int key : map.keySet()){
+	    	System.out.println(b.getName());
+	    }
+	    
+	    Cart cart = new Cart();
+	    cart.getMedias().add(premierLivre);
+	    
 	}
 	
 	/**********************************/

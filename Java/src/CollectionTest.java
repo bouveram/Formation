@@ -54,22 +54,26 @@ public class CollectionTest {
 		return set;
 	}
 	
-	public Map<String,Book> mapTest() {
-		Map<String,Book> map = new HashMap<String,Book>();
+	public Map<Integer,Book> mapTest() {
+		Map<Integer,Book> map = new HashMap<Integer,Book>();
 		Book b1 = new Book();
 		Book b2 = new Book();
 		Book b3 = new Book();
 		Book b4 = new Book();
 		
 		b1.setName("Premier Livre");
+		b1.setId(1);
 		b2.setName("Deuxieme Livre");
+		b2.setId(2);
 		b3.setName("Troisieme Livre");
+		b3.setId(3);
 		b4.setName("Quatrieme Livre");
-		
-		map.put("one", b1);
-		map.put("two", b2);
-		map.put("three", b3);
-		map.put("four", b1);
+		b3.setId(4);
+				
+		map.put(b1.getId(), b1);
+		map.put(b2.getId(), b2);
+		map.put(b3.getId(), b3);
+		map.put(b4.getId(), b1);
 		
 		map.remove("four");
 		
