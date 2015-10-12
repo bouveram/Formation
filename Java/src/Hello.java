@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import com.m2i.formation.geometry.*;
 import com.m2i.formation.media.*;
@@ -130,6 +134,20 @@ public class Hello {
 	    //ou :
 	    int nbPage = ((Book)b2).getNbPage();
 	    System.out.println(b2.getVATPrice());
+	    
+	    List<Book> liste = new ArrayList<Book>();
+	    liste = new CollectionTest().listTest();
+	    
+	    for(Book b:liste){
+	    	System.out.println(b.getName());
+	    }
+	    System.out.println();
+	    Set<Book> set = new HashSet<Book>();
+	    set = new CollectionTest().setTest();
+	    
+	    for(Book b:set){
+	    	System.out.println(b.getName());
+	    }
 	}
 	
 	/**********************************/
