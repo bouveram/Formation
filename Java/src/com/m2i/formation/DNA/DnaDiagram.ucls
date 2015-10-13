@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true">  
   <class id="1" language="java" name="com.m2i.formation.DNA.Base" project="Java" 
     file="/Java/src/com/m2i/formation/DNA/Base.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="112" x="462" y="338"/>    
+    <position height="81" width="112" x="475" y="724"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="com.m2i.formation.DNA.AminoAcid" project="Java" 
     file="/Java/src/com/m2i/formation/DNA/AminoAcid.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="151" x="639" y="37"/>    
+    <position height="261" width="151" x="316" y="423"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="com.m2i.formation.DNA.DNABase" project="Java" 
     file="/Java/src/com/m2i/formation/DNA/DNABase.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="173" x="538" y="495"/>    
+    <position height="99" width="173" x="551" y="917"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,61 +30,61 @@
   </class>  
   <class id="4" language="java" name="com.m2i.formation.DNA.RNABase" project="Java" 
     file="/Java/src/com/m2i/formation/DNA/RNABase.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="112" x="244" y="495"/>    
+    <position height="81" width="112" x="257" y="917"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.m2i.formation.DNA.Protein" project="Java" 
-    file="/Java/src/com/m2i/formation/DNA/Protein.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="169" x="41" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="com.m2i.formation.DNA.DNA" project="Java" 
+  <class id="5" language="java" name="com.m2i.formation.DNA.DNA" project="Java" 
     file="/Java/src/com/m2i/formation/DNA/DNA.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="178" x="614" y="338"/>    
+    <position height="117" width="178" x="627" y="724"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="com.m2i.formation.DNA.RNA" project="Java" 
+  <class id="6" language="java" name="com.m2i.formation.DNA.RNA" project="Java" 
     file="/Java/src/com/m2i/formation/DNA/RNA.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="178" x="244" y="338"/>    
+    <position height="99" width="178" x="257" y="724"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="com.m2i.formation.DNA.Cell" project="Java" 
+  <class id="7" language="java" name="com.m2i.formation.DNA.Cell" project="Java" 
     file="/Java/src/com/m2i/formation/DNA/Cell.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="172" x="250" y="37"/>    
+    <position height="207" width="172" x="316" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="com.m2i.formation.DNA.Codon" project="Java" 
+  <class id="8" language="java" name="com.m2i.formation.DNA.Codon" project="Java" 
     file="/Java/src/com/m2i/formation/DNA/Codon.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="155" x="49" y="338"/>    
+    <position height="153" width="176" x="41" y="724"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="com.m2i.formation.DNA.Strand" project="Java" 
+  <class id="9" language="java" name="com.m2i.formation.DNA.Strand" project="Java" 
     file="/Java/src/com/m2i/formation/DNA/Strand.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="137" x="462" y="37"/>    
+    <position height="99" width="137" x="507" y="423"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.m2i.formation.DNA.Protein" project="Java" 
+    file="/Java/src/com/m2i/formation/DNA/Protein.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="166" x="316" y="284"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -92,7 +92,7 @@
     </display>  
   </class>  
   <association id="11">    
-    <end type="SOURCE" refId="6" navigable="false">      
+    <end type="SOURCE" refId="5" navigable="false">      
       <attribute id="12" name="dnaBases"/>      
       <multiplicity id="13" minimum="0" maximum="2147483647"/>    
     </end>    
@@ -100,7 +100,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="14">    
-    <end type="SOURCE" refId="7" navigable="false">      
+    <end type="SOURCE" refId="6" navigable="false">      
       <attribute id="15" name="rnaBases"/>      
       <multiplicity id="16" minimum="0" maximum="2147483647"/>    
     </end>    
@@ -108,11 +108,11 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="17">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="10"/>  
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
   </generalization>  
   <association id="18">    
-    <end type="SOURCE" refId="10" navigable="false">      
+    <end type="SOURCE" refId="9" navigable="false">      
       <attribute id="19" name="bases"/>      
       <multiplicity id="20" minimum="0" maximum="2147483647"/>    
     </end>    
@@ -120,7 +120,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="21">    
-    <end type="SOURCE" refId="9" navigable="false">      
+    <end type="SOURCE" refId="8" navigable="false">      
       <attribute id="22" name="rnaBases"/>      
       <multiplicity id="23" minimum="0" maximum="2147483647"/>    
     </end>    
@@ -128,21 +128,37 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="24">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="10"/>  
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="9"/>  
   </generalization>  
   <generalization id="25">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <generalization id="26">    
+  <association id="26">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="27" name="aminoAcids"/>      
+      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="29">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <generalization id="27">    
+  <generalization id="30">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="2"/>  
   </generalization>  
+  <association id="31">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="32" name="genome"/>      
+      <multiplicity id="33" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
