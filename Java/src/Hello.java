@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,7 +12,7 @@ import com.m2i.formation.media.*;
 
 public class Hello {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		int i=4;
 		int j=9;
@@ -160,6 +161,13 @@ public class Hello {
 	    
 	    Cart cart = new Cart();
 	    cart.getMedias().add(premierLivre);
+	    
+	    TestFile fichier = new TestFile();
+	    fichier.readFile("C:\\Users\\adminlocal\\git\\Java\\Livres.csv");
+	    
+	    liste = fichier.readBooks("C:\\Users\\adminlocal\\git\\Java\\Livres.csv");
+	    cart.getMedias().addAll(liste);
+	    System.out.println(cart.getVATPrice());
 	    
 	}
 	
