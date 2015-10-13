@@ -8,5 +8,15 @@ public class Codon {
 		return rnaBases;
 	}
 	
+	private AminoAcid aminoAcid;
+
+	public AminoAcid getAminoAcid() {
+		return aminoAcid;
+	}
+
+	public void setAminoAcid(AminoAcid aminoAcid) {
+		this.aminoAcid = aminoAcid;
+	}
+	
 	
 }
