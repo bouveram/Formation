@@ -5,5 +5,10 @@ import java.util.List;
 
 public class Protein {
 
-	private List<AminoAcid> protein = new ArrayList<AminoAcid>();
+	private List<AminoAcid> aminoAcids = new ArrayList<AminoAcid>();
+
+	public List<AminoAcid> getProtein() {
+		return aminoAcids;
+	}
+	
 }
