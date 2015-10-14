@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.m2i.formation.media.*;
+import com.m2i.formation.media.entities.*;
 
 public class CollectionTest {
 	

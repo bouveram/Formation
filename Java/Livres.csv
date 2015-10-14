@@ -1,4 +1,4 @@
-title;NbPages;price
-Je suis un goeland;2;50.4
-nono le petit robot;15;98.7
-emile se fait pas de bile;985;4.5
+title;NbPages;price;id
+Je suis un goeland;2;50.4;15
+nono le petit robot;15;98.7;67
+emile se fait pas de bile;985;4.5;9

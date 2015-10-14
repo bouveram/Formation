@@ -1,4 +1,4 @@
-package com.m2i.formation.media;
+package com.m2i.formation.media.entities;
 
 public class MediaException extends Exception {
 

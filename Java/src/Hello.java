@@ -8,7 +8,8 @@ import java.util.Random;
 import java.util.Set;
 
 import com.m2i.formation.geometry.*;
-import com.m2i.formation.media.*;
+import com.m2i.formation.media.entities.*;
+import com.m2i.formation.media.repositories.BookRepository;
 
 public class Hello {
 
@@ -162,12 +163,29 @@ public class Hello {
 	    Cart cart = new Cart();
 	    cart.getMedias().add(premierLivre);
 	    
-	    TestFile fichier = new TestFile();
-	    fichier.readFile("C:\\Users\\adminlocal\\git\\Java\\Livres.csv");
+	    BookRepository fichier = new BookRepository();
+	    fichier.setUri("C:\\Users\\adminlocal\\git\\Java\\Livres.csv");
+	    liste = fichier.getAll();
+	    for(Book bForEach:liste){
+	    	System.out.println(bForEach.getTitle());
+	    }
+	    	    
+	    liste = fichier.getByPrice(75.0);
+
+	    for(Book bForEach:liste){
+	    	System.out.println(bForEach.getTitle());
+	    }
 	    
-	    liste = fichier.readBooks("C:\\Users\\adminlocal\\git\\Java\\Livres.csv");
+	    liste = fichier.getByTitle("emile");
+	    
+	    for(Book bForEach:liste){
+	    	System.out.println(bForEach.getTitle());
+	    }
+	    
 	    cart.getMedias().addAll(liste);
 	    System.out.println(cart.getVATPrice());
+	    
+	    Singleton singleton = Singleton.getInstance();
 	    
 	}
 	

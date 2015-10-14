@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import com.m2i.formation.media.Book;
+import com.m2i.formation.media.entities.Book;
 
 public class TestFile {
 	

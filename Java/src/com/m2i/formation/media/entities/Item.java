@@ -1,4 +1,4 @@
-package com.m2i.formation.media;
+package com.m2i.formation.media.entities;
 
 //Une class Abstract ne peut heriter que d'une classe abstract
 public abstract class Item implements IItem {
