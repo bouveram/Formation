@@ -3,7 +3,9 @@ package com.m2i.formation.media.repositories;
 import java.io.IOException;
 import java.util.List;
 
-public interface IRepository<T> {
+import com.m2i.formation.media.entities.*;
+
+public interface IRepository<T extends Book> { // IRepository<T> where T:Media
 	
 	String getUri();
 	
