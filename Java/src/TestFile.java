@@ -34,7 +34,6 @@ public class TestFile {
 		List<Book> bookList = new ArrayList<Book>();
 		BufferedReader br = new BufferedReader(new FileReader(uri));
 		String line;
-		String value;
 		line = br.readLine(); //delete first Line
 		line = br.readLine();
 		while(line!=null) {
@@ -46,6 +45,7 @@ public class TestFile {
 			bookList.add(b);
 			line = br.readLine();
 		}
+		br.close();
 		return bookList;
 	}
 }

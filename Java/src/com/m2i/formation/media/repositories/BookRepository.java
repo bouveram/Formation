@@ -6,11 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
-import java.util.regex.*;
 
 import com.m2i.formation.media.entities.Book;
 
-public class BookRepository implements IBookRepository{
+public class BookRepository implements IRepository<Book>{
 
 	private String uri;
 
