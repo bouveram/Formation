@@ -26,13 +26,14 @@ public class BookRepository implements IBookRepository{
 	public List<Book> getAll() throws IOException {
 		// TODO Auto-generated method stub
 		List<Book> bookList = new ArrayList<Book>();
+		Book b = new Book();
 		BufferedReader br = new BufferedReader(new FileReader(uri));
 		String line;
 		line = br.readLine(); //delete first Line
 		line = br.readLine();
 		while(line!=null) {
 
-			Book b = new Book();
+			
 			b=getBookFromCSV(line);
 			
 			bookList.add(b);
@@ -45,38 +46,40 @@ public class BookRepository implements IBookRepository{
 	@Override
 	public Book getById(int id) throws IOException {
 		// TODO Auto-generated method stub
-		Book findedBook = new Book();
+		Book bookFound = null;
+		Book b = new Book();
+		boolean bookFund = false;
 		BufferedReader br = new BufferedReader(new FileReader(uri));
 		String line;
 		line = br.readLine(); //delete first Line
 		line = br.readLine();
-		while(line!=null) {
+		while(line!=null && !bookFund) {
 
-			Book b = new Book();
+			
 			b=getBookFromCSV(line);
 			
 			if(b.getId()==id) {
-				findedBook = b;
-				break;
+				bookFound = b;
 			}
 			line = br.readLine();
 		}
 		br.close();
 		
-		return findedBook;
+		return bookFound;
 	}
 
 	@Override
 	public List<Book> getByPrice(double price) throws IOException {
 		// TODO Auto-generated method stub
 		List<Book> bookList = new ArrayList<Book>();
+		Book b = new Book();
 		BufferedReader br = new BufferedReader(new FileReader(uri));
 		String line;
 		line = br.readLine(); //delete first Line
 		line = br.readLine();
 		while(line!=null) {
 			
-			Book b = new Book();
+			
 			b=getBookFromCSV(line);
 			
 			if(b.getPrice()<=price)
@@ -90,23 +93,18 @@ public class BookRepository implements IBookRepository{
 	@Override
 	public List<Book> getByTitle(String word) throws IOException {
 		// TODO Auto-generated method stub
-		Pattern pattern = Pattern.compile(word);
-	    Matcher matcher;
-		
-        matcher = pattern.matcher("Hugo Etiévant");
-	    
 		List<Book> bookList = new ArrayList<Book>();
+		Book b = new Book();
 		BufferedReader br = new BufferedReader(new FileReader(uri));
 		String line;
 		line = br.readLine(); //delete first Line
 		line = br.readLine();
 		while(line!=null) {
 			
-			Book b = new Book();
+			
 			b=getBookFromCSV(line);
 			
-			matcher = pattern.matcher(b.getTitle());
-			while(matcher.find()) {
+			if(b.getTitle().matches("(?i).*"+word+".*")) { //(?i) = CASE_INSENSITIVE
 				bookList.add(b);
 			}
 			line = br.readLine();
@@ -116,6 +114,7 @@ public class BookRepository implements IBookRepository{
 	}
 	
 	public Book getBookFromCSV(String line) {
+		
 		Book b = new Book();
 		StringTokenizer st = new StringTokenizer(line,";");
 		b.setTitle(st.nextToken());
