@@ -21,9 +21,17 @@ public class BookRepository implements IBookRepository{
 	public void setUri(String uri) {
 		this.uri = uri;
 	}
+	
+	private List<Book> cache = null;
+	
+	private List<Book> getCache() throws IOException {
+		if(cache == null) {
+			cache = cacheFactory();
+		}
+		return cache;
+	}
 
-	@Override
-	public List<Book> getAll() throws IOException {
+	private List<Book> cacheFactory() throws IOException {
 		// TODO Auto-generated method stub
 		List<Book> bookList = new ArrayList<Book>();
 		Book b = new Book();
@@ -42,29 +50,22 @@ public class BookRepository implements IBookRepository{
 		br.close();
 		return bookList;
 	}
+	
+	@Override
+	public List<Book> getAll() throws IOException {
+		return getCache();
+	}
 
 	@Override
 	public Book getById(int id) throws IOException {
 		// TODO Auto-generated method stub
 		Book bookFound = null;
-		Book b = new Book();
-		boolean bookFund = false;
-		BufferedReader br = new BufferedReader(new FileReader(uri));
-		String line;
-		line = br.readLine(); //delete first Line
-		line = br.readLine();
-		while(line!=null && !bookFund) {
-
-			
-			b=getBookFromCSV(line);
-			
+		
+		for(Book b:getCache()) {
 			if(b.getId()==id) {
 				bookFound = b;
 			}
-			line = br.readLine();
 		}
-		br.close();
-		
 		return bookFound;
 	}
 
@@ -72,21 +73,11 @@ public class BookRepository implements IBookRepository{
 	public List<Book> getByPrice(double price) throws IOException {
 		// TODO Auto-generated method stub
 		List<Book> bookList = new ArrayList<Book>();
-		Book b = new Book();
-		BufferedReader br = new BufferedReader(new FileReader(uri));
-		String line;
-		line = br.readLine(); //delete first Line
-		line = br.readLine();
-		while(line!=null) {
-			
-			
-			b=getBookFromCSV(line);
-			
-			if(b.getPrice()<=price)
+		
+		for(Book b:getCache()) {
+			if(b.getPrice() <= price)
 				bookList.add(b);
-			line = br.readLine();
 		}
-		br.close();
 		return bookList;
 	}
 
@@ -94,22 +85,11 @@ public class BookRepository implements IBookRepository{
 	public List<Book> getByTitle(String word) throws IOException {
 		// TODO Auto-generated method stub
 		List<Book> bookList = new ArrayList<Book>();
-		Book b = new Book();
-		BufferedReader br = new BufferedReader(new FileReader(uri));
-		String line;
-		line = br.readLine(); //delete first Line
-		line = br.readLine();
-		while(line!=null) {
-			
-			
-			b=getBookFromCSV(line);
-			
+		for(Book b:getCache()){
 			if(b.getTitle().matches("(?i).*"+word+".*")) { //(?i) = CASE_INSENSITIVE
 				bookList.add(b);
 			}
-			line = br.readLine();
 		}
-		br.close();
 		return bookList;
 	}
 	
