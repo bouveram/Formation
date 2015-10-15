@@ -7,9 +7,10 @@ import java.util.List;
  * @author adminlocal
  *
  */
-public class Cart {
+public class Cart implements IEntity {
 
 	private List<Media> medias = new ArrayList<Media>();
+	private int id;
 	
 	public List<Media> getMedias() {
 		return medias;
@@ -21,6 +22,18 @@ public class Cart {
 			price += m.getVATPrice();
 		}
 		return price;
+	}
+
+	@Override
+	public int getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

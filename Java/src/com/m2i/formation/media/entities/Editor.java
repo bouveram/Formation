@@ -1,11 +1,12 @@
 package com.m2i.formation.media.entities;
 
 
-public class Editor {
+public class Editor implements IEntity {
 
 	private String name;
 	private String siretNb;
 	private double ca;
+	private int id;
 	
 	/**
 	 * @return the name
@@ -36,6 +37,16 @@ public class Editor {
 	 */
 	public void setSiretNb(String siretNb) {
 		this.siretNb = siretNb;
+	}
+	@Override
+	public int getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+	@Override
+	public void setId(int id) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	/*

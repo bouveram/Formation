@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.m2i.formation.media.entities.*;
 
-public interface IRepository<T extends Book> { // IRepository<T> where T:Media
+public interface IRepository<T extends IEntity> { // IRepository<T> where T:Media
 	
 	String getUri();
 	
