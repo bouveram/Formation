@@ -21,5 +21,13 @@ public class EntitiesTests {
 		Assert.assertEquals(10.5, m.getVATPrice(),0.001);
 		
 	}
+	
+	@Test
+	public void testFirstTest() {
+		Book b = new Book();
+		double eval = b.getEvaluation();
+		Assert.assertEquals(0, eval,0.001);
+		
+	}
 
 }

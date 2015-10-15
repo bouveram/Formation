@@ -46,5 +46,26 @@ public class RepositoriesTests {
 		Assert.assertEquals(1, liste.size());
 		Assert.assertEquals(67, liste.get(0).getId());
 	}
+	
+	@Test
+	public void getUriTest() throws IOException {
+		BookRepository fichier = new BookRepository();
+	    fichier.setUri("C:\\Users\\adminlocal\\git\\Java\\Livres.csv");
+		String uri = fichier.getUri();
+		Assert.assertNotNull(uri);
+		Assert.assertEquals("C:\\Users\\adminlocal\\git\\Java\\Livres.csv", uri);
+	}
+	
+	@Ignore
+	@Test
+	public void insertBookTest() throws IOException {
+		Book b = new Book();
+		b.setTitle("livre ajouté");
+		b.setPrice(9.99);
+		BookRepository fichier = new BookRepository();
+		int nbBook = fichier.getAll().size();
+	    fichier.insert(b);
+		Assert.assertEquals(nbBook+1, fichier.getAll().size());
+	}
 
 }

@@ -35,5 +35,10 @@ public class Book extends Media {
 	public double getVATPrice(){
 		return getPrice()*1.05;
 	}
+
+	public double getEvaluation() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 		
 }

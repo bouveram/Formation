@@ -102,5 +102,10 @@ public class BookRepository implements IRepository<Book>{
 		b.setId(Integer.parseInt(st.nextToken()));
 		return b;
 	}
+
+	public void insert(Book b) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
