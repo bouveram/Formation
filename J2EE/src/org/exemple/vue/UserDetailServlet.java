@@ -2,8 +2,6 @@ package org.exemple.vue;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +12,16 @@ import org.exemple.model.Utilisateur;
 import org.exemple.model.UtilisateurManager;
 
 /**
- * Servlet implementation class UserList
+ * Servlet implementation class UserDetailServlet
  */
-@WebServlet("/user/list")
-public class UserList extends HttpServlet {
+@WebServlet("/user/detail")
+public class UserDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserList() {
+    public UserDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,9 +31,7 @@ public class UserList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		afficher(request, response, UtilisateurManager.getInstance().getAll());
-		
+		afficher(request,response,UtilisateurManager.getInstance().getById(Integer.parseInt(request.getParameter("id"))));
 	}
 
 	/**
@@ -46,7 +42,7 @@ public class UserList extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	protected void afficher(HttpServletRequest request, HttpServletResponse response, List<Utilisateur> users) throws ServletException, IOException {
+	protected void afficher(HttpServletRequest request, HttpServletResponse response, Utilisateur u) throws ServletException, IOException {
 		
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html>");
@@ -56,26 +52,13 @@ public class UserList extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h1>User List</h1>");
-		out.println("<table>");
-		out.println("<tr>");
-		out.println("<td> Id</td>");
-		out.println("<td> Prenom</td>");
-		out.println("<td> Nom</td>");
-		out.println("<td> Adresse</td>");
-		out.println("<td> details</td>");
-		out.println("</tr>");
-		
-		for(Utilisateur u : users){
-			out.println("<tr>");
-			out.println("<td>#" + u.getId() + "</td>");
-			out.println("<td>" + u.getPrenom() + "</td>");
-			out.println("<td>" + u.getNom() + "</td>");
-			out.println("<td>" + u.getAdresse() + "</td>");
-			out.println("<td><a href='detail?id="+u.getId()+"'> detail</a></td>");
-			out.println("</tr>");
-		}
-		
-		out.println("</table>");
+		out.println("<form action='add' method ='POST'>");
+			out.println("<label>Id</label><input type='TEXT' name='id' value ='" + u.getId() + "'><br>");
+			out.println("<label>Prenom</label><input type='TEXT' name='prenom' value ='" + u.getPrenom() + "'><br>");
+			out.println("<label>Nom</label><input type='TEXT' name='nom' value='" + u.getNom() + "'><br>");
+			out.println("<label>Adresse</label><input type='TEXT' name='adresse' value='" + u.getAdresse() + "'><br>");
+			out.println("<br><button>Update</button></form>");
+			out.println("<br><a href='list'>Back to list</a>");
 		out.println("</body>");
 		out.println("</html");
 	}
