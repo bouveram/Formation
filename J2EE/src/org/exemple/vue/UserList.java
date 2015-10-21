@@ -58,6 +58,7 @@ public class UserList extends HttpServlet {
 		out.println("<h1>User List</h1>");
 		out.println("<table>");
 		out.println("<tr>");
+		out.println("<td> delete</td>");
 		out.println("<td> Id</td>");
 		out.println("<td> Prenom</td>");
 		out.println("<td> Nom</td>");
@@ -67,6 +68,7 @@ public class UserList extends HttpServlet {
 		
 		for(Utilisateur u : users){
 			out.println("<tr>");
+			out.println("<td><a href='remove?id="+u.getId()+"'> Del</a></td>");
 			out.println("<td>#" + u.getId() + "</td>");
 			out.println("<td>" + u.getPrenom() + "</td>");
 			out.println("<td>" + u.getNom() + "</td>");
@@ -74,7 +76,7 @@ public class UserList extends HttpServlet {
 			out.println("<td><a href='detail?id="+u.getId()+"'> detail</a></td>");
 			out.println("</tr>");
 		}
-		
+		out.println("<td><a href='add'>add user</a></td>");
 		out.println("</table>");
 		out.println("</body>");
 		out.println("</html");
