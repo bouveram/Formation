@@ -1,4 +1,4 @@
-package org.exemple.vue;
+package org.exemple.controlleur;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.exemple.model.Utilisateur;
 import org.exemple.model.UtilisateurManager;
 
 /**
- * Servlet implementation class UserUpdateServlet
+ * Servlet implementation class UserRemoveServlet
  */
-@WebServlet("/user/update")
-public class UserUpdateServlet extends HttpServlet {
+@WebServlet("/user/remove")
+public class UserRemoveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserUpdateServlet() {
+    public UserRemoveServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,8 +31,9 @@ public class UserUpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		updateUser(request, response,Integer.parseInt(request.getParameter("id")), request.getParameter("prenom"),
-				request.getParameter("nom"),request.getParameter("adresse"));
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		removeUser(request, response, Integer.parseInt(request.getParameter("id")));
+		afficher(request,response);
 	}
 
 	/**
@@ -44,16 +44,8 @@ public class UserUpdateServlet extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	protected void updateUser(HttpServletRequest request, HttpServletResponse response,int id, String firstName, String lastName, String adress) throws ServletException, IOException {
-		Utilisateur user = new Utilisateur();
-		user.setId(id);
-		user.setAdresse(adress);
-		user.setNom(lastName);
-		user.setPrenom(firstName);
-		
-		UtilisateurManager.getInstance().add(user);
-		
-		afficher(request, response);
+	protected void removeUser(HttpServletRequest request, HttpServletResponse response, int id) throws ServletException, IOException {
+		UtilisateurManager.getInstance().remove(UtilisateurManager.getInstance().getById(id));
 	}
 	
 	protected void afficher(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -64,8 +56,8 @@ public class UserUpdateServlet extends HttpServlet {
 		out.println("<title>List</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>Update user</h1>");
-		out.println("<p>User updated</p>");
+		out.println("<h1>Remove user</h1>");
+		out.println("<p>User deleted</p>");
 		out.println("<a href='list'>Back to list</a>");
 	}
 

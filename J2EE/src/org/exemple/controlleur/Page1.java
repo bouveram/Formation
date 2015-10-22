@@ -1,4 +1,4 @@
-package org.exemple.vue;
+package org.exemple.controlleur;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Page2
+ * Servlet implementation class Page1
  */
-@WebServlet("/Page2")
-public class Page2 extends HttpServlet {
+@WebServlet("/Page1")
+public class Page1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Page2() {
+    public Page1() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +29,7 @@ public class Page2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().println("Hello " + request.getParameter("page2Name") + " !!");
+		
 		
 		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
@@ -38,11 +38,26 @@ public class Page2 extends HttpServlet {
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Page 2</title>");
+		out.println("<title>Page 1</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>Hello " + request.getParameter("firstName") + " " + request.getParameter("lastName") + " !!</h1>");
-		out.println("<a href='Page1'> Aller a la page 1 </a>");
+		out.println("<h1>Hello Page 1</h1>");
+		out.println("<p>Entrez votre nom et prenom :</p>");
+		out.println("<form action='Page2' method ='POST'>");
+		out.println("Prénom : <br>");
+		out.println("<input type='TEXT' name='firstName'>");
+		out.println("<br>");
+		out.println("Nom : <br>");
+		out.println("<input type='TEXT' name='lastName'>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<button>Envoi</button>");
+		out.println("</form>");
+
+		/*out.println("<p>Entrez votre prénom :</p>");
+		out.println("<form action='Page2' method ='POST'>");
+		out.println("	<input type='TEXT' name='firstName'>");
+		out.println("</form>");*/
 		out.println("</body>");
 		out.println("</html");
 		

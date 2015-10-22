@@ -1,4 +1,4 @@
-package org.exemple.vue;
+package org.exemple.controlleur;
 
 import java.io.IOException;
 import java.io.PrintWriter;

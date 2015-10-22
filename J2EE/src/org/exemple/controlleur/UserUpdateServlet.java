@@ -1,8 +1,7 @@
-package org.exemple.vue;
+package org.exemple.controlleur;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,16 +13,16 @@ import org.exemple.model.Utilisateur;
 import org.exemple.model.UtilisateurManager;
 
 /**
- * Servlet implementation class UserList
+ * Servlet implementation class UserUpdateServlet
  */
-@WebServlet("/user/list")
-public class UserList extends HttpServlet {
+@WebServlet("/user/update")
+public class UserUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserList() {
+    public UserUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,9 +32,8 @@ public class UserList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		afficher(request, response, UtilisateurManager.getInstance().getAll());
-		
+		updateUser(request, response,Integer.parseInt(request.getParameter("id")), request.getParameter("prenom"),
+				request.getParameter("nom"),request.getParameter("adresse"));
 	}
 
 	/**
@@ -46,8 +44,19 @@ public class UserList extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	protected void afficher(HttpServletRequest request, HttpServletResponse response, List<Utilisateur> users) throws ServletException, IOException {
+	protected void updateUser(HttpServletRequest request, HttpServletResponse response,int id, String firstName, String lastName, String adress) throws ServletException, IOException {
+		Utilisateur user = new Utilisateur();
+		user.setId(id);
+		user.setAdresse(adress);
+		user.setNom(lastName);
+		user.setPrenom(firstName);
 		
+		UtilisateurManager.getInstance().update(user);
+		
+		afficher(request, response);
+	}
+	
+	protected void afficher(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
@@ -55,31 +64,9 @@ public class UserList extends HttpServlet {
 		out.println("<title>List</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>User List</h1>");
-		out.println("<table>");
-		out.println("<tr>");
-		out.println("<td> delete</td>");
-		out.println("<td> Id</td>");
-		out.println("<td> Prenom</td>");
-		out.println("<td> Nom</td>");
-		out.println("<td> Adresse</td>");
-		out.println("<td> details</td>");
-		out.println("</tr>");
-		
-		for(Utilisateur u : users){
-			out.println("<tr>");
-			out.println("<td><a href='remove?id="+u.getId()+"'> Del</a></td>");
-			out.println("<td>#" + u.getId() + "</td>");
-			out.println("<td>" + u.getPrenom() + "</td>");
-			out.println("<td>" + u.getNom() + "</td>");
-			out.println("<td>" + u.getAdresse() + "</td>");
-			out.println("<td><a href='detail?id="+u.getId()+"'> detail</a></td>");
-			out.println("</tr>");
-		}
-		out.println("<td><a href='add'>add user</a></td>");
-		out.println("</table>");
-		out.println("</body>");
-		out.println("</html");
+		out.println("<h1>Update user</h1>");
+		out.println("<p>User updated</p>");
+		out.println("<a href='list'>Back to list</a>");
 	}
 
 }
