@@ -31,6 +31,7 @@ public class UserDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		afficher(request,response,UtilisateurManager.getInstance().getById(Integer.parseInt(request.getParameter("id"))));
 	}
 

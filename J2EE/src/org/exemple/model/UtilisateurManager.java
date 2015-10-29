@@ -1,9 +1,12 @@
 package org.exemple.model;
 
 import java.util.ArrayList;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.exemple.connection.SqlConnection;
 
 public class UtilisateurManager {
 
@@ -11,6 +14,7 @@ public class UtilisateurManager {
 	public static final UtilisateurManager getInstance(){
 		return UtilisateurManager.instance;
 	}
+	
 	
 	private Map<Integer, Utilisateur> cache = new HashMap<>();
 	
@@ -39,23 +43,106 @@ public class UtilisateurManager {
 	
 	
 	public void add(Utilisateur user) {
-		this.cache.put(user.getId(),user);
+		try {
+			PreparedStatement stmt = SqlConnection.getInstance().getConnection().prepareStatement("insert into user values(?,?,?,?);");
+			stmt.setInt(1,user.getId());
+			stmt.setString(2, user.getPrenom());
+			stmt.setString(3, user.getNom());
+			stmt.setString(4, user.getAdresse());
+			
+			int rs = stmt.executeUpdate();
+			
+			if(stmt!=null)
+				stmt.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void remove(Utilisateur user) {
-		this.cache.remove(user.getId(),user);
+		try {
+			PreparedStatement stmt = SqlConnection.getInstance().getConnection().prepareStatement("delete from user WHERE id=?;");
+			stmt.setInt(1,user.getId());
+			
+			int rs = stmt.executeUpdate();
+			
+			if(stmt!=null)
+				stmt.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void update(Utilisateur user) {
-		this.cache.replace(user.getId(), user);
+		
+		try {
+			PreparedStatement stmt = SqlConnection.getInstance().getConnection().prepareStatement("UPDATE user SET lastname=?,firstname=?,adress=? WHERE id=?;");
+			stmt.setInt(4,user.getId());
+			stmt.setString(1, user.getPrenom());
+			stmt.setString(2, user.getNom());
+			stmt.setString(3, user.getAdresse());
+			
+			int rs = stmt.executeUpdate();
+			
+			if(stmt!=null)
+				stmt.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public Utilisateur getById(int id) {
-		return this.cache.get(id);
+		Utilisateur user = new Utilisateur();
+		try {
+			PreparedStatement stmt = SqlConnection.getInstance().getConnection().prepareStatement("select * from user where id = ?;");
+			stmt.setInt(1,id);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				user.setId(rs.getInt("id"));
+				user.setPrenom(rs.getString("firstname"));
+				user.setNom(rs.getString("lastname"));
+				user.setAdresse(rs.getString("adress"));
+			}
+			rs.close();
+			
+			if(stmt!=null)
+				stmt.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return user;
 	}
 	
 	public List<Utilisateur> getAll() {
-		final List<Utilisateur> result = new ArrayList<>(this.cache.values());
+		//UtilisateurManager.connection();
+		final List<Utilisateur> result = new ArrayList<>();
+		try {
+			Connection conn = SqlConnection.getInstance().getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from user;");
+			
+			while(rs.next()){
+				Utilisateur user = new Utilisateur();
+				user.setId(rs.getInt("id"));
+				user.setNom(rs.getString("lastname"));
+				user.setPrenom(rs.getString("firstname"));
+				user.setAdresse(rs.getString("adress"));
+				result.add(user);
+			}
+			rs.close();
+						
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 }
