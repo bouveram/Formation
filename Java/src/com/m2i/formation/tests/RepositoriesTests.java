@@ -1,11 +1,13 @@
 package com.m2i.formation.tests;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.junit.*;
 
 import com.m2i.formation.media.entities.Book;
+import com.m2i.formation.media.repositories.BookDbRepository;
 import com.m2i.formation.media.repositories.BookRepository;
 
 public class RepositoriesTests {
@@ -66,6 +68,20 @@ public class RepositoriesTests {
 		int nbBook = fichier.getAll().size();
 	    fichier.insert(b);
 		Assert.assertEquals(nbBook+1, fichier.getAll().size());
+	}
+	
+	@Test
+	public void getAllWithDb() throws SQLException, IOException {
+		BookDbRepository repo = new BookDbRepository();
+		List<Book> l = repo.getAll();
+		Assert.assertTrue(l.size() > 0);
+	}
+	
+	@Test
+	public void getByIdWithDb() throws SQLException, IOException {
+		BookDbRepository repo = new BookDbRepository();
+		Book b = repo.getById(2);
+		Assert.assertEquals("l'étranger",b.getTitle());
 	}
 
 }
