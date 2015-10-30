@@ -1,9 +1,17 @@
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
 
@@ -186,6 +194,70 @@ public class Hello {
 	    System.out.println(cart.getVATPrice());
 	    
 	    Singleton singleton = Singleton.getInstance();
+	    
+	    
+		
+	    Connection conn = null;
+		String strSQL = "UPDATE `test`.`media` SET `title`='La cigale et la fourmie' WHERE `id`='3';";
+		
+		//Properties, fichier de configuration
+		Properties properties = new Properties();
+		
+		try {
+			properties.load(new FileInputStream("src/test.properties"));
+		} catch (IOException e) {
+			
+		}
+		
+		for(String key : properties.stringPropertyNames()) {
+			String value = properties.getProperty(key);
+			System.out.println(key + " =>" + value);
+		}
+				
+		try {
+			// 1 : connection
+			System.out.println("Connecting ...");
+			conn = DriverManager.getConnection(	properties.getProperty("JDBC_URL"),
+												properties.getProperty("JDBC_USER"),
+												properties.getProperty("JDBC_PASS"));
+			
+			// 2
+			System.out.println("Create statement ...");
+            Statement stmt = conn.createStatement();
+			
+			// 3
+			System.out.println("Send SQL ...");
+			stmt.executeUpdate(strSQL);
+			stmt.close();
+			
+			strSQL = "select a.*,b.name from media as a left outer join publisher as b"
+					+ " on a.id_publisher = b.id where a.type = 0;";
+			
+			
+			// 2
+			System.out.println("Create statement ...");
+            stmt = conn.createStatement();
+			
+			// 3
+			System.out.println("Send SQL ...");
+			ResultSet rs = stmt.executeQuery(strSQL);
+			
+			//4
+			while(rs.next()) {
+				System.out.print("Title : " + rs.getString("title"));
+				System.out.print(" - " + rs.getFloat("price") + " €");
+				System.out.println(" - " + rs.getString("name"));
+			}
+			
+			//5
+			stmt.close();
+			rs.close();
+			
+			
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
 	    
 	}
 	
