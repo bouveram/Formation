@@ -22,7 +22,6 @@
 		password : <br>
 		<input type="password" name='password'>
 		<br>
-		<br>
 		<button>Login</button>
 	</form>
 </c:if>
