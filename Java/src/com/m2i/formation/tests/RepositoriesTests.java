@@ -71,14 +71,14 @@ public class RepositoriesTests {
 	}
 	
 	@Test
-	public void getAllWithDb() throws SQLException, IOException {
+	public void getAllWithDb() throws SQLException, IOException, ClassNotFoundException {
 		BookDbRepository repo = new BookDbRepository();
 		List<Book> l = repo.getAll();
 		Assert.assertTrue(l.size() > 0);
 	}
 	
 	@Test
-	public void getByIdWithDb() throws SQLException, IOException {
+	public void getByIdWithDb() throws SQLException, IOException, ClassNotFoundException {
 		BookDbRepository repo = new BookDbRepository();
 		Book b = repo.getById(2);
 		Assert.assertEquals("l'étranger",b.getTitle());

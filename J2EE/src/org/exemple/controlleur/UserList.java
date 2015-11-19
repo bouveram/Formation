@@ -16,7 +16,7 @@ import org.exemple.model.UtilisateurManager;
 /**
  * Servlet implementation class UserList
  */
-@WebServlet("/user/list")
+@WebServlet(urlPatterns={"/user/list","/list","/test/list"})
 public class UserList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -48,7 +48,12 @@ public class UserList extends HttpServlet {
 	
 	protected void afficher(HttpServletRequest request, HttpServletResponse response, List<Utilisateur> users) throws ServletException, IOException {
 		
-		PrintWriter out = response.getWriter();
+		//request.setAttribute("users", users);
+		//request.getSession().invalidate();
+		request.setAttribute("users", users);
+		request.getRequestDispatcher("/userList.jsp").forward(request, response);
+		
+		/*PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
@@ -79,7 +84,7 @@ public class UserList extends HttpServlet {
 		out.println("<td><a href='add'>add user</a></td>");
 		out.println("</table>");
 		out.println("</body>");
-		out.println("</html");
+		out.println("</html");*/
 	}
 
 }
