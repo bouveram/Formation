@@ -14,128 +14,92 @@ import com.m2i.formation.media.entities.Editor;
 public class BookDbRepository implements IRepository<Book> {
 
 	private Properties properties = new Properties();
-	private Connection conn;
 	private String uri;
 	
 	
 	public BookDbRepository() throws FileNotFoundException, IOException, SQLException {
 		
 		properties.load(new FileInputStream("src/test.properties"));
-		uri = getUri();
-		conn = DriverManager.getConnection(uri,
+		setUri(properties.getProperty("JDBC_URL"));
+		
+	}
+	
+	private Connection getConnection() throws ClassNotFoundException, SQLException {
+		Class.forName(properties.getProperty("JDBC_DRIVER"));
+		Connection conn = DriverManager.getConnection(uri,
 				properties.getProperty("JDBC_USER"),
 				properties.getProperty("JDBC_PASS"));
+		return conn;
+	}
+	
+	private List<Book> getByQuery(String sql) throws ClassNotFoundException, SQLException {
+		
+		Connection conn = getConnection();
+		Statement stmt;
+		ResultSet rs;
+		List<Book> result = new ArrayList<Book>();
+		
+		stmt = conn.createStatement();
+		
+		rs = stmt.executeQuery(sql);
+		
+		while(rs.next()) {
+			Book b = new Book();
+			Editor editor = new Editor();
+			b.setId(rs.getInt("id"));
+			b.setTitle(rs.getString("title"));
+			b.setNbPage(rs.getInt("nbPage"));
+			editor.setId(rs.getInt("publiId"));
+			editor.setName(rs.getString("name"));
+			b.setPublisher(editor);
+			result.add(b);
+		}
+		
+		stmt.close();
+		rs.close();
+		
+		return result;
 	}
 	
 	@Override
 	public String getUri() {
-		// TODO Auto-generated method stub
-		return properties.getProperty("JDBC_URL");
+		return uri;
 	}
 
 	@Override
 	public void setUri(String uri) {
-		// TODO Auto-generated method stub
 		this.uri = uri;
 	}
 
 	@Override
-	public List<Book> getAll() throws SQLException {
-		// TODO Auto-generated method stub
-		Statement stmt;
-		ResultSet rs;
-		List<Book> result = new ArrayList<Book>();
-		
-		stmt = conn.createStatement();
-		
-		String strSQL = "select a.*,b.name,b.id as publiID from media as a left outer join publisher as b"
-				+ " on a.id_publisher = b.id where a.type = 0;";
-		
-		rs = stmt.executeQuery(strSQL);
-		
-		while(rs.next()) {
-			Book b = new Book();
-			Editor editor = new Editor();
-			b.setId(rs.getInt("id"));
-			b.setTitle(rs.getString("title"));
-			b.setNbPage(rs.getInt("nbPage"));
-			editor.setId(rs.getInt("publiId"));
-			editor.setName(rs.getString("name"));
-			b.setPublisher(editor);
-			result.add(b);
-		}
-		
-		stmt.close();
-		rs.close();
-		
-		return result;
+	public List<Book> getAll() throws SQLException, ClassNotFoundException {
+		 return getByQuery("select a.*,b.name,b.id as publiID from media as a left outer join publisher as b"
+				+ " on a.id_publisher = b.id where a.type = 0;");
 	}
 
 	@Override
-	public Book getById(int id) throws IOException, SQLException {
-		Statement stmt;
-		ResultSet rs;
+	public Book getById(int id) throws IOException, SQLException, ClassNotFoundException {
+		List<Book> l = getByQuery("select a.*,b.name,b.id as publiID from media as a left outer join publisher as b"
+				+ " on a.id_publisher = b.id where a.type = 0 and a.id = " + id + ";");
 		Book b = null;
-		
-		stmt = conn.createStatement();
-		
-		String strSQL = "select a.*,b.name,b.id as publiID from media as a left outer join publisher as b"
-				+ " on a.id_publisher = b.id where a.type = 0 and a.id = " + id + ";";
-		
-		rs = stmt.executeQuery(strSQL);
-		
-		while(rs.next()) {
-			b = new Book();
-			Editor editor = new Editor();
-			b.setId(rs.getInt("id"));
-			b.setTitle(rs.getString("title"));
-			b.setNbPage(rs.getInt("nbPage"));
-			editor.setId(rs.getInt("publiId"));
-			editor.setName(rs.getString("name"));
-			b.setPublisher(editor);
+		if(l.size() > 0) {
+			b = l.get(0);
 		}
-		
-		stmt.close();
-		rs.close();
-		
 		return b;
 	}
 
 	@Override
-	public List<Book> getByPrice(double price) throws IOException, SQLException {
-		Statement stmt;
-		ResultSet rs;
-		List<Book> result = new ArrayList<Book>();
+	public List<Book> getByPrice(double price) throws IOException, SQLException, ClassNotFoundException {
 		
-		stmt = conn.createStatement();
-		
-		String strSQL = "select a.*,b.name,b.id as publiID from media as a left outer join publisher as b"
-				+ " on a.id_publisher = b.id where a.type = 0 and a.price <= " + price + ";";
-		
-		rs = stmt.executeQuery(strSQL);
-		
-		while(rs.next()) {
-			Book b = new Book();
-			Editor editor = new Editor();
-			b.setId(rs.getInt("id"));
-			b.setTitle(rs.getString("title"));
-			b.setNbPage(rs.getInt("nbPage"));
-			editor.setId(rs.getInt("publiId"));
-			editor.setName(rs.getString("name"));
-			b.setPublisher(editor);
-			result.add(b);
-		}
-		
-		stmt.close();
-		rs.close();
-				
-		return result;
+		return getByQuery("select a.*,b.name,b.id as publiID from media as a left outer join publisher as b"
+				+ " on a.id_publisher = b.id where a.type = 0 and a.price <= " + price + ";");
 	}
 
 	@Override
-	public List<Book> getByTitle(String word) throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Book> getByTitle(String word) throws IOException, ClassNotFoundException, SQLException {
+		
+		return getByQuery("select a.*,b.name,b.id as publiID from media as a left outer join publisher as b"
+				+ " on a.id_publisher = b.id where a.type = 0 and UPPER(a.title) like %" + word.toUpperCase() + "%;");
 	}
 
 }

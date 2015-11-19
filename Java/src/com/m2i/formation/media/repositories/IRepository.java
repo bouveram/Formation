@@ -12,11 +12,11 @@ public interface IRepository<T extends IEntity> { // IRepository<T> where T:Medi
 	
 	void setUri(String uri);
 	
-	List<T> getAll() throws IOException, SQLException;
+	List<T> getAll() throws IOException, SQLException, ClassNotFoundException;
 	
-	T getById(int id) throws IOException, SQLException ;
+	T getById(int id) throws IOException, SQLException, ClassNotFoundException ;
 	
-	List<T> getByPrice(double price) throws IOException, SQLException ;
+	List<T> getByPrice(double price) throws IOException, SQLException, ClassNotFoundException ;
 	
-	List<T> getByTitle(String word) throws IOException ;
+	List<T> getByTitle(String word) throws IOException, ClassNotFoundException, SQLException ;
 }
