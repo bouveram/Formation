@@ -17,7 +17,7 @@
 <h1><fmt:message key="h1" bundle="${message}" /></h1>
 	 <table> 
 	 <tr> 
-	 <th> <fmt:message key="th.delete" bundle="${message}" /> </th> 
+	 <c:if test="${not empty sessionScope.user}"> <th> <fmt:message key="th.delete" bundle="${message}" /> </th> </c:if> 
 	 <th> <fmt:message key="th.id" bundle="${message}" /> </th> 
 	 <th> <fmt:message key="th.firstname" bundle="${message}" /> </th> 
 	 <th> <fmt:message key="th.lastname" bundle="${message}" /> </th> 
@@ -26,14 +26,15 @@
 	 </tr>
 	 <c:forEach var="user" items="${requestScope.users}">
 		 <tr> 
-		<td><a href='remove?id=${user.id}'>Del</a></td>
+		<c:if test="${not empty sessionScope.user}"> <td><a href='<c:url value="/user/remove?id=${user.id}" />'>Del</a></td> </c:if>
 		<td>#<c:out value="${user.id}" /></td>
 		 <td><c:out value="${user.prenom}" /></td>
 		 <td><c:out value="${user.nom}" /></td>
 		 <td><c:out value="${user.adresse}" /></td>
-		 <td><a href='detail?id=${user.id}'> detail</a></td></tr>
+		 <td><a href='detail?id=${user.id}'> detail</a></td>
+		 </tr>
 	</c:forEach>
- <td><a href='add'>add user</a></td> 
+ 	<td><a href='add'>add user</a></td> 
  </table>
 </body>
 </html>

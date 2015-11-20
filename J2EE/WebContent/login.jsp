@@ -10,7 +10,7 @@
 </head>
 <body>
 <c:if test="${not empty sessionScope.user}">
-	<c:out value="Bonjour ${user.prenom}"></c:out>
+	<c:out value="Bonjour ${sessionScope.user.prenom}"></c:out>
 </c:if>
 
 <c:if test="${empty sessionScope.user}"> 

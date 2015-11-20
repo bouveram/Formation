@@ -19,23 +19,21 @@ import org.exemple.model.UtilisateurManager;
 @WebServlet(urlPatterns={"/user/list","/list","/test/list"})
 public class UserList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserList() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UserList() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		afficher(request, response, UtilisateurManager.getInstance().getAll());
-		
 	}
 
 	/**
@@ -43,16 +41,46 @@ public class UserList extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//afficher(request, response, UtilisateurManager.getInstance().getAll());
+		//doGet(request, response);
 	}
-	
+
 	protected void afficher(HttpServletRequest request, HttpServletResponse response, List<Utilisateur> users) throws ServletException, IOException {
-		
+
 		//request.setAttribute("users", users);
 		//request.getSession().invalidate();
-		request.setAttribute("users", users);
-		request.getRequestDispatcher("/userList.jsp").forward(request, response);
-		
+
+		if(request.getParameter("format") !=null) {
+			PrintWriter out = response.getWriter();
+			StringBuffer sb = new StringBuffer();
+			switch(request.getParameter("format")){
+			case "json":
+				response.setContentType("application/json");
+				sb.append("[");
+				for(Utilisateur u:users){
+					sb.append(u.toJson()).append(",");
+				}
+				sb.delete(sb.length()-1, sb.length());
+				sb.append("]");
+				out.println(sb);
+				break;
+			case "xml":
+				response.setContentType("application/xml");
+				sb.append("<users>");
+				for(Utilisateur u:users){
+					sb.append(u.toXml());
+				}
+				sb.append("</users>");
+				out.println(sb);
+				break;
+			default :
+				break;
+			}
+		} else {
+
+			request.setAttribute("users", users);
+			request.getRequestDispatcher("/userList.jsp").forward(request, response);
+		}
 		/*PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
@@ -70,7 +98,7 @@ public class UserList extends HttpServlet {
 		out.println("<td> Adresse</td>");
 		out.println("<td> details</td>");
 		out.println("</tr>");
-		
+
 		for(Utilisateur u : users){
 			out.println("<tr>");
 			out.println("<td><a href='remove?id="+u.getId()+"'> Del</a></td>");
