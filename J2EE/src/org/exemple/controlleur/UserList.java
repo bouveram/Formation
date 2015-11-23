@@ -33,7 +33,7 @@ public class UserList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		afficher(request, response, UtilisateurManager.getInstance().getAll());
+		//afficher(request, response, UtilisateurManager.getInstance().getAll());
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class UserList extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//afficher(request, response, UtilisateurManager.getInstance().getAll());
+		afficher(request, response, UtilisateurManager.getInstance().getAll());
 		//doGet(request, response);
 	}
 
@@ -77,9 +77,20 @@ public class UserList extends HttpServlet {
 				break;
 			}
 		} else {
-
-			request.setAttribute("users", users);
-			request.getRequestDispatcher("/userList.jsp").forward(request, response);
+			PrintWriter out = response.getWriter();
+			StringBuffer sb = new StringBuffer();
+			
+				response.setContentType("application/json");
+				sb.append("[");
+				for(Utilisateur u:users){
+					sb.append(u.toJson()).append(",");
+				}
+				sb.delete(sb.length()-1, sb.length());
+				sb.append("]");
+				out.println(sb);
+			
+			//request.setAttribute("users", users);
+			//request.getRequestDispatcher("/userList.jsp").forward(request, response);
 		}
 		/*PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html>");
