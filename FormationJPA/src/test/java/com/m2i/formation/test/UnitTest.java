@@ -7,6 +7,7 @@ import javax.persistence.*;
 import org.junit.*;
 
 import com.m2i.formation.media.entities.Media;
+import com.m2i.formation.media.entities.Publisher;
 import com.m2i.formation.repositories.EMFSingleton;
 
 public class UnitTest {
@@ -38,8 +39,9 @@ public class UnitTest {
 		assertEquals(3l, tq.getSingleResult());
 		
 		//Creation et Commit du média
+		Publisher p = em.find(Publisher.class, 1);
 		Media med = new Media();
-		med.setId_Publisher(2);
+		med.setPublisher(p);
 		med.setPrice(50);
 		med.setTitle("Mon nouveau livre");
 		med.setType(0);

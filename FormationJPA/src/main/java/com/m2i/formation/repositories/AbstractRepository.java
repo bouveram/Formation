@@ -12,6 +12,13 @@ public abstract class AbstractRepository<T extends IEntity>
 	
 	private EntityManager entityManager;
 	private EntityTransaction transaction;
+	private Class<T> entityClass;
+	
+	@SuppressWarnings("unchecked")
+	public AbstractRepository () {
+		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
+		this.entityClass = (Class<T>) genericSuperclass.getActualTypeArguments()[0];
+	}
 	
 	@Override
 	public EntityManager getEntityManager() {
@@ -39,14 +46,6 @@ public abstract class AbstractRepository<T extends IEntity>
 	public void setEntityManager(EntityManager em) {
 		this.entityManager = em;
 		
-	}
-	
-	private Class<T> entityClass;
-	
-	@SuppressWarnings("unchecked")
-	public AbstractRepository () {
-		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
-		this.entityClass = (Class<T>) genericSuperclass.getActualTypeArguments()[0];
 	}
 
 	@Override
@@ -78,16 +77,18 @@ public abstract class AbstractRepository<T extends IEntity>
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
-	public List<T> getByWhere(String where) {
+	protected List<T> getByWhere(String where) {
 		return entityManager.createQuery("select e from " + entityClass.getSimpleName() + " e where " + where).getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected List<T> getByJPQL(String jpql) {
+		return entityManager.createQuery(jpql).getResultList();
 	}
 
 	@Override
 	public void commit() {
 		getTransaction().commit();
 	}
-	
-	
 	
 }

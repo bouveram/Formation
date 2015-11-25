@@ -2,7 +2,7 @@ package com.m2i.formation.media.entities;
 
 public interface IEntity {
 	
-	public int getId();
+	public Integer getId();
 	
-	public void setId(int id);
+	public void setId(Integer id);
 }

@@ -16,6 +16,4 @@ public interface IRepository<T extends IEntity> {
 	
 	public abstract List<T> getAll();
 	
-	public abstract List<T> getByWhere(String where);
-	
 }

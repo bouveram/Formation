@@ -7,7 +7,7 @@ import com.m2i.formation.media.entities.Media;
 public class MediaRepository extends AbstractRepository<Media> {
 	
 	public List<Media> getByPrice(double price){
-		return super.getByWhere("e.price < " + price);
+		return super.getByJPQL("select e from Media e where e.price <= " + price);
 	}
 	
 	public List<Media> getByTitle(String title){
