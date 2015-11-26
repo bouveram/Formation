@@ -1,20 +1,17 @@
 package com.m2i.formation.media.repositories;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringSingleton {
 
 	public SpringSingleton() {}
 	
-	private static XmlBeanFactory spring = null;
+	private static ApplicationContext spring = null;
 	
-	public static synchronized XmlBeanFactory getXBF(){
+	public static synchronized ApplicationContext getXBF(){
 		if(spring == null) {
-			spring = new XmlBeanFactory(new ClassPathResource("spring.xml"));
+			spring = new ClassPathXmlApplicationContext("spring.xml");
 		}
 		return spring;
 	}

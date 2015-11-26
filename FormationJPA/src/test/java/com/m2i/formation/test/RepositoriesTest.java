@@ -83,8 +83,9 @@ public class RepositoriesTest {
 	
 	@Test
 	public void springTest2() {
-		MediaRepository medRep1 = SpringSingleton.getXBF().getBean("mediaRepository",MediaRepository.class);
-		MediaRepository medRep2 = (MediaRepository) SpringSingleton.getXBF().getBean("mediaRepository");
+		@SuppressWarnings("unchecked")
+		IRepository<Media> medRep1 = (IRepository<Media>)SpringSingleton.getXBF().getBean("mediaRepository");
+		MediaRepository medRep2 = SpringSingleton.getXBF().getBean("mediaRepository",MediaRepository.class);
 		assertEquals(medRep1, medRep2);
 	}
 
