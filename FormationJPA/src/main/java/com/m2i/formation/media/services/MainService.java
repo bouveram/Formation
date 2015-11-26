@@ -13,6 +13,7 @@ public class MainService implements IMainService {
 	 */
 	@Override
 	public void addAuthorToMedia(Author a, int mediaId) throws ServiceException {
+		
 		mediaRepository = new MediaRepository();
 		mediaRepository.setEntityManager(EMFSingleton.getEmf().createEntityManager());
 		

@@ -9,10 +9,8 @@ import javax.persistence.EntityTransaction;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.m2i.formation.media.entities.Media;
-import com.m2i.formation.media.entities.Publisher;
-import com.m2i.formation.media.repositories.EMFSingleton;
-import com.m2i.formation.media.repositories.MediaRepository;
+import com.m2i.formation.media.entities.*;
+import com.m2i.formation.media.repositories.*;
 
 public class RepositoriesTest {
 
@@ -74,6 +72,20 @@ public class RepositoriesTest {
 		repo.setEntityManager(EMFSingleton.getEmf().createEntityManager());
 		List<Media> list = repo.getByPrice(10);
 		assertEquals(2, list.size());
+	}
+	
+	
+	@Test
+	public void springTest() {
+		Media med = (Media) SpringSingleton.getXBF().getBean("media");
+		assertNotNull(med);
+	}
+	
+	@Test
+	public void springTest2() {
+		MediaRepository medRep1 = SpringSingleton.getXBF().getBean("mediaRepository",MediaRepository.class);
+		MediaRepository medRep2 = (MediaRepository) SpringSingleton.getXBF().getBean("mediaRepository");
+		assertEquals(medRep1, medRep2);
 	}
 
 }
