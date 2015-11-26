@@ -8,14 +8,8 @@ public class MainService implements IMainService {
 	private MediaRepository mediaRepository;
 	private AuthorRepository authorRepository;
 	
-	/* (non-Javadoc)
-	 * @see com.m2i.formation.media.services.IMainService#addAuthorToMedia(com.m2i.formation.media.entities.Author, int)
-	 */
 	@Override
 	public void addAuthorToMedia(Author a, int mediaId) throws ServiceException {
-		
-		mediaRepository = new MediaRepository();
-		mediaRepository.setEntityManager(EMFSingleton.getEmf().createEntityManager());
 		
 		Media m = mediaRepository.getById(mediaId);
 		if(m != null) {
@@ -31,6 +25,22 @@ public class MainService implements IMainService {
 			throw new ServiceException("The media does not exist");
 		}
 		
+	}
+
+	public AuthorRepository getAuthorRepository() {
+		return authorRepository;
+	}
+
+	public void setAuthorRepository(AuthorRepository authorRepository) {
+		this.authorRepository = authorRepository;
+	}
+
+	public MediaRepository getMediaRepository() {
+		return mediaRepository;
+	}
+
+	public void setMediaRepository(MediaRepository mediaRepository) {
+		this.mediaRepository = mediaRepository;
 	}
 	
 }

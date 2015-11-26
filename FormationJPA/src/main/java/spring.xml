@@ -12,6 +12,23 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 <bean id="media" class="com.m2i.formation.media.entities.Media" scope="prototype" />
 
-<bean id="mediaRepository" class="com.m2i.formation.media.repositories.MediaRepository" scope="singleton" />
+<bean id="mediaRepository" class="com.m2i.formation.media.repositories.MediaRepository" scope="prototype">
+	<property name="entityManager" ref="entityManager"></property>
+</bean>
+
+<bean id="authorRepository" class="com.m2i.formation.media.repositories.AuthorRepository" scope="prototype">
+	<property name="entityManager" ref="entityManager"></property>
+</bean>
+
+<bean id="mainService" class="com.m2i.formation.media.services.MainService" scope="prototype">
+	<property name="mediaRepository" ref="mediaRepository"></property>
+	<property name="authorRepository" ref="authorRepository"></property>
+</bean>
+
+<bean id="entityManagerFactory" class="javax.persistence.Persistence" factory-method="createEntityManagerFactory">
+	<constructor-arg value="FormationJPA" />
+</bean>
+
+<bean id="entityManager" factory-bean="entityManagerFactory" factory-method="createEntityManager" scope="prototype" />
 
 </beans>
