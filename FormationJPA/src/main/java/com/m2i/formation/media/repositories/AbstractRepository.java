@@ -1,4 +1,4 @@
-package com.m2i.formation.repositories;
+package com.m2i.formation.media.repositories;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.m2i.formation.repositories;
+package com.m2i.formation.media.repositories;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

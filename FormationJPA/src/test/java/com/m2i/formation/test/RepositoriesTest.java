@@ -11,8 +11,8 @@ import org.junit.Test;
 
 import com.m2i.formation.media.entities.Media;
 import com.m2i.formation.media.entities.Publisher;
-import com.m2i.formation.repositories.EMFSingleton;
-import com.m2i.formation.repositories.MediaRepository;
+import com.m2i.formation.media.repositories.EMFSingleton;
+import com.m2i.formation.media.repositories.MediaRepository;
 
 public class RepositoriesTest {
 

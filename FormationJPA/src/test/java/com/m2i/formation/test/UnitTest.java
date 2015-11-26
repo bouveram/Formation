@@ -8,7 +8,7 @@ import org.junit.*;
 
 import com.m2i.formation.media.entities.Media;
 import com.m2i.formation.media.entities.Publisher;
-import com.m2i.formation.repositories.EMFSingleton;
+import com.m2i.formation.media.repositories.EMFSingleton;
 
 public class UnitTest {
 

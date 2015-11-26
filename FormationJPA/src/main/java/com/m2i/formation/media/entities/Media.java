@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name="media")
 @NamedQuery(name="Media.findAll", query="SELECT m FROM Media m")
-public class Media implements Serializable,IEntity {
+public class Media implements Serializable, IEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Id
