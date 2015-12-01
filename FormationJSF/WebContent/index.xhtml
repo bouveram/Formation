@@ -1,58 +1,77 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 
-<h:head></h:head> 
-<body> 
-<f:view>
-<ui:composition template="/template.xhtml">
-		<ui:param name="title" value="Book" />
-		
-		<ui:define name="showBook">
-		<f:view>
-				<h:outputLabel value="#{bookController.book.id}" />
-				<br />
-				<h:outputLabel value="#{bookController.book.title}" />
-				<br />
-				<h:outputLabel value="#{bookController.book.price}" />
-				<br />
-				<h:outputLabel value="#{bookController.book.priceVAT}" />
-				<br />
+<h:head></h:head>
+<body>
+	<f:view>
+		<ui:composition template="/template.xhtml">
+			<ui:param name="title" value="Book" />
+
+			<ui:define name="showBook">
+				<f:view>
+					<h:dataTable var="book" value="#{booksController.books}">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Id" />
+							</f:facet>
+							<h:outputText value="#{book.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Title" />
+							</f:facet>
+							<h:outputText value="#{book.title}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Price" />
+							</f:facet>
+							<h:outputText value="#{book.price}" />
+						</h:column>
+					</h:dataTable>
 				</f:view>
-		</ui:define>
-		
-		<ui:define name="getBookById">
-			<f:view>
-				<h:form>
-					id : <h:inputText value="#{bookController.book.id}" />
-					<h:commandButton action="#{bookController.getBookById}"
-						value="Search by id" />
-				</h:form>
-			</f:view>
-		</ui:define>
+			</ui:define>
 
-		<ui:define name="insertBook">
-		<f:view>
-			<h:form>
-				<h:inputText value="#{bookController.book.id}" />
-				<br />
-				<h:inputText value="#{bookController.book.title}" />
-				<br />
-				<h:inputText value="#{bookController.book.price}" />
-				<br />
-				<h:outputLabel value="#{bookController.book.priceVAT}" />
-				<br />
-				<h:commandButton action="#{bookController.insertBook}"
-					value="Insert Book" />
-			</h:form>
-			</f:view>
-		</ui:define>
-	</ui:composition>
-<h:form>
-	<h:commandButton action="#{bookController.getSampleBook}" value="Get Sample Book" />
-</h:form>
-</f:view>
-</body> 
+			<ui:define name="getBookById">
+				<f:view>
+					<h:form>
+					id : <h:inputText value="#{booksController.id}" />
+						<h:commandButton action="#{booksController.getBookById}"
+							value="Search by id" />
+					</h:form>
+				</f:view>
+			</ui:define>
+
+			<ui:define name="insertBook">
+				<f:view>
+					<h:form>
+						<h:inputText value="#{bookController.book.id}" />
+						<br />
+						<h:inputText value="#{bookController.book.title}" />
+						<br />
+						<h:inputText value="#{bookController.book.price}" />
+						<br />
+						<h:outputLabel value="#{bookController.book.priceVAT}" />
+						<br />
+						<h:commandButton action="#{bookController.insertBook}"
+							value="Insert Book" />
+					</h:form>
+				</f:view>
+			</ui:define>
+			<ui:define name="getAllBooks">
+				<h:form>
+					<h:commandButton action="#{booksController.booksAllGet}"
+						value="Get All Books" />
+				</h:form>
+			</ui:define>
+		</ui:composition>
+		<h:form>
+			<h:commandButton action="#{bookController.getSampleBook}"
+				value="Get Sample Book" />
+		</h:form>
+	</f:view>
+</body>
 </html>
