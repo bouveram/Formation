@@ -38,7 +38,7 @@ public class ServicesTest {
 		assertNotNull(service.getMediaRepository().getEntityManager());
 		assertNotNull(service.getAuthorRepository());
 		assertNotNull(service.getMediaRepository());
-		
+		assertNotNull(service.getMediaRepository().getById(1));
 	}
 
 }

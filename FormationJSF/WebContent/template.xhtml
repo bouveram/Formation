@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<h:outputStylesheet name="css/animations.css" />
+	<h:outputStylesheet name="font/stylesheet.css" />
+	<h:outputStylesheet name="css/app.css" />
+	<h:outputStylesheet name="css/bootstrap.min.css" />
+	<h:outputStylesheet name="css/bootstrap-theme.min.css" />
+
+	<h:outputScript name="js/script.js" />
+	<h:outputScript name="js/jquery.min.js" />
+	<h:outputScript name="js/bootstrap.js" />
+	<h:outputScript name="js/angular.min.js" />
+	<h:outputScript name="js/angular-route.min.js" />
+	<h:outputScript name="js/angular-animate.min.js" />
+	<h:outputScript name="js/angular-resource.min.js" />
+	<h:outputScript name="js/services.js" />
+	<h:outputScript name="js/filters.js" />
+	<h:outputScript name="js/animations.js" />
+	<h:outputScript name="js/controllers.js" />
+	<h:outputScript name="js/app.js" />
+	<h:outputScript name="js/directives.js" />
+
+	<title>${title}</title>
+</h:head>
+<h:body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header inline-block">
+				<a href="index.xhtml" class="navbar-brand">
+					<div class="hidden-xs">Do you want a book ?</div>
+					<div class="hidden-sm hidden-md hidden-lg">Book ?</div>
+				</a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.xhtml">Home</a></li>
+					<li><a href="#/about">About</a></li>
+					<li><a href="http://www.google.com">Mon maitre à penser</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<br />
+	<br />
+	<div class="view-container">
+		<div class="view-frame">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-2">
+						<ui:insert name="getBookById" />
+					</div>
+				<div class="col-md-5">
+					<ul class="phones">
+						<ui:insert name="showBook" />
+					</ul>
+				</div>
+					<div class="col-md-5">
+						<ui:insert name="insertBook" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

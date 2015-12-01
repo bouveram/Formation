@@ -24,7 +24,6 @@ public class MainService implements IMainService {
 		} else {
 			throw new ServiceException("The media does not exist");
 		}
-		
 	}
 
 	public AuthorRepository getAuthorRepository() {
