@@ -2,26 +2,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
 <h:body>
 	<ui:composition template="/template.xhtml">
-		
+
 
 		<ui:define name="insertBook">
-		<ui:param name="title" value="Insert Book " />
-		<f:view>
-			<h:form>
-				<h:inputText value="#{bookController.book.id}" />
-				<br />
-				<h:inputText value="#{bookController.book.title}" />
-				<br />
-				<h:inputText value="#{bookController.book.price}" />
-				<br />
-				<h:outputLabel value="#{bookController.book.priceVAT}" />
-				<br />
-				<h:commandButton action="#{bookController.insertBook}"
-					value="Insert Book" />
-			</h:form>
+			<ui:param name="title" value="Insert Book " />
+			<f:view>
+				<h:form>
+					type : <h:inputText value="#{bookController.book.type}">
+					</h:inputText>
+					<br />
+					title : <h:inputText value="#{bookController.book.title}" />
+					<br />
+					price : <h:inputText value="#{bookController.book.price}" required="true">
+						<!-- <f:validateDoubleRange minimum="0" maximum="1000" /> -->
+					</h:inputText>
+					<br />
+					<h:outputLabel value="#{bookController.book.priceVAT}" />
+					<br />
+					<h:commandButton action="#{bookController.insertBook}"
+						value="Insert Book" />
+				</h:form>
 			</f:view>
 		</ui:define>
 	</ui:composition>

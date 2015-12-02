@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name="media")
 @NamedQuery(name="Media.findAll", query="SELECT m FROM Media m")
-public class Media implements Serializable, IEntity {
+public class Media implements Serializable,IEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,52 +24,39 @@ public class Media implements Serializable, IEntity {
 	private Integer category;
 
 	@Temporal(TemporalType.DATE)
-	private Date dateSortie;
+	private Date dateParution;
 
 	@Column(length=25)
-	private String isbn;
+	private String langue;
 
-	@Column(length=25)
-	private String lang;
+	private Integer nbPages;
 
-	private Integer nbPage;
+	private Integer nbTracks;
 
-	private Integer nbTrack;
+	private Integer numISBN;
 
 	@Column(nullable=false)
 	private float price;
 
-	@Column(nullable=false, length=25)
+	@Column(nullable=false, length=50)
 	private String title;
-
-	@Column(nullable=false)
-	private Integer type;
 
 	//bi-directional many-to-many association to Author
 	@ManyToMany(mappedBy="medias")
 	private List<Author> authors;
 
-	//bi-directional many-to-many association to Cart
-	@ManyToMany
-	@JoinTable(
-		name="cartmedia"
-		, joinColumns={
-			@JoinColumn(name="id_Media", nullable=false)
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="id", nullable=false)
-			}
-		)
-	private List<Cart> carts;
-
 	//bi-directional many-to-one association to Publisher
 	@ManyToOne
-	@JoinColumn(name="id_Publisher", nullable=false)
+	@JoinColumn(name="id_Publisher")
 	private Publisher publisher;
 
 	//bi-directional many-to-one association to Page
 	@OneToMany(mappedBy="media")
 	private List<Page> pages;
+
+	//bi-directional many-to-many association to Card
+	@ManyToMany(mappedBy="medias")
+	private List<Card> cards;
 
 	public Media() {
 	}
@@ -90,44 +77,44 @@ public class Media implements Serializable, IEntity {
 		this.category = category;
 	}
 
-	public Date getDateSortie() {
-		return this.dateSortie;
+	public Date getDateParution() {
+		return this.dateParution;
 	}
 
-	public void setDateSortie(Date dateSortie) {
-		this.dateSortie = dateSortie;
+	public void setDateParution(Date dateParution) {
+		this.dateParution = dateParution;
 	}
 
-	public String getIsbn() {
-		return this.isbn;
+	public String getLangue() {
+		return this.langue;
 	}
 
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
+	public void setLangue(String langue) {
+		this.langue = langue;
 	}
 
-	public String getLang() {
-		return this.lang;
+	public Integer getNbPages() {
+		return this.nbPages;
 	}
 
-	public void setLang(String lang) {
-		this.lang = lang;
+	public void setNbPages(Integer nbPages) {
+		this.nbPages = nbPages;
 	}
 
-	public Integer getNbPage() {
-		return this.nbPage;
+	public Integer getNbTracks() {
+		return this.nbTracks;
 	}
 
-	public void setNbPage(Integer nbPage) {
-		this.nbPage = nbPage;
+	public void setNbTracks(Integer nbTracks) {
+		this.nbTracks = nbTracks;
 	}
 
-	public Integer getNbTrack() {
-		return this.nbTrack;
+	public Integer getNumISBN() {
+		return this.numISBN;
 	}
 
-	public void setNbTrack(Integer nbTrack) {
-		this.nbTrack = nbTrack;
+	public void setNumISBN(Integer numISBN) {
+		this.numISBN = numISBN;
 	}
 
 	public float getPrice() {
@@ -146,28 +133,12 @@ public class Media implements Serializable, IEntity {
 		this.title = title;
 	}
 
-	public Integer getType() {
-		return this.type;
-	}
-
-	public void setType(Integer type) {
-		this.type = type;
-	}
-
 	public List<Author> getAuthors() {
 		return this.authors;
 	}
 
 	public void setAuthors(List<Author> authors) {
 		this.authors = authors;
-	}
-
-	public List<Cart> getCarts() {
-		return this.carts;
-	}
-
-	public void setCarts(List<Cart> carts) {
-		this.carts = carts;
 	}
 
 	public Publisher getPublisher() {
@@ -198,6 +169,14 @@ public class Media implements Serializable, IEntity {
 		page.setMedia(null);
 
 		return page;
+	}
+
+	public List<Card> getCards() {
+		return this.cards;
+	}
+
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
 	}
 
 }

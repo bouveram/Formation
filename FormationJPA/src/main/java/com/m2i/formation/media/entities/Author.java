@@ -20,11 +20,11 @@ public class Author implements Serializable,IEntity {
 	@Column(unique=true, nullable=false)
 	private Integer id;
 
-	@Column(length=25)
-	private String firstName;
+	@Column(length=50)
+	private String name;
 
-	@Column(length=25)
-	private String lastName;
+	@Column(length=50)
+	private String surName;
 
 	//bi-directional many-to-many association to Media
 	@ManyToMany
@@ -50,20 +50,20 @@ public class Author implements Serializable,IEntity {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return this.firstName;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLastName() {
-		return this.lastName;
+	public String getSurName() {
+		return this.surName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setSurName(String surName) {
+		this.surName = surName;
 	}
 
 	public List<Media> getMedias() {

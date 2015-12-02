@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
 
 <h:head></h:head>
 <body>
@@ -48,11 +50,20 @@
 			<ui:define name="insertBook">
 				<f:view>
 					<h:form>
-						<h:inputText value="#{bookController.book.id}" />
+					type : 
+						<h:selectOneMenu value="#{bookController.book.type}">
+							<f:selectItem itemValue="book" itemLabel="Book" />
+							<f:selectItem itemValue="cd" itemLabel="CD" />
+							<f:selectItem itemValue="dvd" itemLabel="DVD" />
+						</h:selectOneMenu>
 						<br />
-						<h:inputText value="#{bookController.book.title}" />
+					title : <h:inputText value="#{bookController.book.title}" required="true" />
 						<br />
-						<h:inputText value="#{bookController.book.price}" />
+					price : <h:inputText id="priceInput" value="#{bookController.book.price}"
+							required="true">
+							<f:validateDoubleRange minimum="0" maximum="1000" />
+						</h:inputText>
+						<h:message for="priceInput" errorStyle="color:red" />
 						<br />
 						<h:outputLabel value="#{bookController.book.priceVAT}" />
 						<br />

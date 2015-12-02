@@ -41,5 +41,13 @@ public class MainService implements IMainService {
 	public void setMediaRepository(MediaRepository mediaRepository) {
 		this.mediaRepository = mediaRepository;
 	}
+
+	@Override
+	public void addMedia(Media m) throws ServiceException {
+		// TODO Auto-generated method stub
+		mediaRepository.getTransaction();
+		mediaRepository.save(m);
+		mediaRepository.commit();
+	}
 	
 }

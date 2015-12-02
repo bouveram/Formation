@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name="publisher")
 @NamedQuery(name="Publisher.findAll", query="SELECT p FROM Publisher p")
-public class Publisher implements Serializable,IEntity {
+public class Publisher implements Serializable, IEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,10 +21,7 @@ public class Publisher implements Serializable,IEntity {
 	private Integer id;
 
 	@Column(length=25)
-	private String adress;
-
-	@Column(length=25)
-	private String name;
+	private String nom;
 
 	//bi-directional many-to-one association to Media
 	@OneToMany(mappedBy="publisher")
@@ -41,20 +38,12 @@ public class Publisher implements Serializable,IEntity {
 		this.id = id;
 	}
 
-	public String getAdress() {
-		return this.adress;
+	public String getNom() {
+		return this.nom;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public List<Media> getMedias() {

@@ -1,26 +1,31 @@
 package com.m2i.formation.jsf.managedBeans;
 
 import javax.faces.bean.ManagedBean;
+import javax.validation.constraints.*;
 
 @ManagedBean(name="bookBean")
 public class BookBean {
 
+	private TypeEnumeration type;
+	
 	private int id;
-	private String Title;
+	
+	private String title;
+	
 	private double price;
 	
 	
-	public int getId() {
-		return id;
+	public TypeEnumeration getType() {
+		return type;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setType(TypeEnumeration type) {
+		this.type = type;
 	}
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 	public double getPrice() {
 		return price;
@@ -30,7 +35,12 @@ public class BookBean {
 	}
 	public double getPriceVAT() {
 		return price*1.05;
-		
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

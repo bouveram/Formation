@@ -11,16 +11,13 @@ import javax.persistence.*;
 @Entity
 @Table(name="page")
 @NamedQuery(name="Page.findAll", query="SELECT p FROM Page p")
-public class Page implements Serializable,IEntity {
+public class Page implements Serializable, IEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(unique=true, nullable=false)
 	private Integer id;
-
-	@Lob
-	private String texte;
 
 	//bi-directional many-to-one association to Media
 	@ManyToOne
@@ -36,14 +33,6 @@ public class Page implements Serializable,IEntity {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public String getTexte() {
-		return this.texte;
-	}
-
-	public void setTexte(String texte) {
-		this.texte = texte;
 	}
 
 	public Media getMedia() {
