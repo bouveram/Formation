@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webService.jsf.formation.m2i.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webService.jsf.formation.m2i.com" xmlns:intf="http://webService.jsf.formation.m2i.com" xmlns:tns1="http://managedBeans.jsf.formation.m2i.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webService.jsf.formation.m2i.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://managedBeans.jsf.formation.m2i.com"/>
+   <element name="getBook">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+      <element name="title" type="xsd:string"/>
+      <element name="price" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBookResponse">
+    <complexType>
+     <sequence>
+      <element name="getBookReturn" type="tns1:BookTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getById">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getByIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getByIdReturn" type="tns1:BookTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getHello">
+    <complexType/>
+   </element>
+   <element name="getHelloResponse">
+    <complexType>
+     <sequence>
+      <element name="getHelloReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://managedBeans.jsf.formation.m2i.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="BookTO">
+    <sequence>
+     <element name="id" type="xsd:int"/>
+     <element name="price" type="xsd:double"/>
+     <element name="priceVAT" type="xsd:double"/>
+     <element name="title" nillable="true" type="xsd:string"/>
+     <element name="type" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getByIdResponse">
+
+      <wsdl:part element="impl:getByIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBookResponse">
+
+      <wsdl:part element="impl:getBookResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getHelloResponse">
+
+      <wsdl:part element="impl:getHelloResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getHelloRequest">
+
+      <wsdl:part element="impl:getHello" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getByIdRequest">
+
+      <wsdl:part element="impl:getById" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBookRequest">
+
+      <wsdl:part element="impl:getBook" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="HelloService">
+
+      <wsdl:operation name="getBook">
+
+         <wsdl:input message="impl:getBookRequest" name="getBookRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBookResponse" name="getBookResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getById">
+
+         <wsdl:input message="impl:getByIdRequest" name="getByIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getByIdResponse" name="getByIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getHello">
+
+         <wsdl:input message="impl:getHelloRequest" name="getHelloRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getHelloResponse" name="getHelloResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="HelloServiceSoapBinding" type="impl:HelloService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getBook">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBookRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBookResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getById">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getByIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getByIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getHello">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getHelloRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getHelloResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="HelloServiceService">
+
+      <wsdl:port binding="impl:HelloServiceSoapBinding" name="HelloService">
+
+         <wsdlsoap:address location="http://localhost:8080/FormationJSF/services/HelloService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -44,7 +44,7 @@ public class UnitTest {
 		med.setPublisher(p);
 		med.setPrice(50);
 		med.setTitle("Mon nouveau livre");
-		med.setType(0);
+		med.setCategory(1);
 		tx.begin();
 		em.persist(med);
 		tx.commit();

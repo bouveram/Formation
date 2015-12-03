@@ -20,14 +20,14 @@ public class ServicesTest {
 		
 		AuthorRepository authorRepo = new AuthorRepository();
 		Author a = authorRepo.getById(3);
-		a.setFirstName("Frederic");
-		a.setLastName("François");
+		a.setSurName("Frederic");
+		a.setName("François");
 		authorRepo.save(a);
 		
 		MainService service = SpringSingleton.getXBF().getBean("mainService",MainService.class);
 		service.addAuthorToMedia(a, 2);
 		MediaRepository mediaRepo = new MediaRepository();
-		assertSame(a.getFirstName(), mediaRepo.getById(2).getAuthors().get(mediaRepo.getById(2).getAuthors().size()-1).getFirstName());
+		assertSame(a.getSurName(), mediaRepo.getById(2).getAuthors().get(mediaRepo.getById(2).getAuthors().size()-1).getSurName());
 	}
 	
 	@Test

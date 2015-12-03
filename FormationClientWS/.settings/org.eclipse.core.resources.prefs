@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/com/m2i/formation/jsf/manageBeans/francois/BookBean.java=UTF-8
+encoding//src/com/m2i/formation/jsf/manageBeans/francois/HelloService.java=UTF-8
+encoding//src/com/m2i/formation/jsf/manageBeans/francois/HelloServiceService.java=UTF-8
+encoding//src/com/m2i/formation/jsf/manageBeans/francois/HelloServiceServiceLocator.java=UTF-8
+encoding//src/com/m2i/formation/jsf/manageBeans/francois/HelloServiceSoapBindingStub.java=UTF-8
+encoding//src/com/m2i/formation/jsf/managedBeans/maxime/BookTO.java=UTF-8
+encoding//src/com/m2i/formation/jsf/webService/maxime/HelloService.java=UTF-8
+encoding//src/com/m2i/formation/jsf/webService/maxime/HelloServiceService.java=UTF-8
+encoding//src/com/m2i/formation/jsf/webService/maxime/HelloServiceServiceLocator.java=UTF-8
+encoding//src/com/m2i/formation/jsf/webService/maxime/HelloServiceSoapBindingStub.java=UTF-8

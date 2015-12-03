@@ -42,7 +42,7 @@ public class RepositoriesTest {
 		m.setPrice(10);
 		m.setPublisher(p);
 		m.setTitle("test");
-		m.setType(0);
+		m.setCategory(0);
 		
 		repo.save(m);
 		repo.commit();
