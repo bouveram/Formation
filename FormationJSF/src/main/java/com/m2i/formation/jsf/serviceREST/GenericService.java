@@ -89,7 +89,7 @@ public class GenericService {
     	phoneList.add(p1);
     	p2.setAge(2);
     	p2.setId("iphone-6");
-    	p2.setImageUrl("http://gadgets.ndtv.com/apple-iphone-6-plus-1974");
+    	p2.setImageUrl("http://img.clubic.com/07606839-photo-iphone6-2.jpg");
     	p2.setName("Apple Iphone 6");
     	p2.setSnippet("Petit texte de presentation de cette pomme");
     	phoneList.add(p2);
@@ -101,7 +101,7 @@ public class GenericService {
     	phoneList.add(p3);
     	p3.setAge(2);
     	p4.setId("xperia-z3-compact");
-    	p4.setImageUrl("http://img.clubic.com/07606839-photo-iphone6-2.jpg");
+    	p4.setImageUrl("http://api.sonymobile.com/files/xperia-z3-compact-mandarin-1240x840-6732d63f6eb7dfe080a35e4f4f04c920.jpg");
     	p4.setName("Sony Xperia Z3 Compact");
     	p4.setSnippet("Ce telephone est le meilleur compromis qui existe au monde !");
     	phoneList.add(p4);
