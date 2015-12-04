@@ -90,8 +90,8 @@ public class BookTO  implements java.io.Serializable {
      * 
      * @param priceVAT
      */
-    public void setPriceVAT(double priceVAT) {
-        this.priceVAT = priceVAT;
+    public void setPriceVAT() {
+        this.priceVAT = price * 1.05;
     }
 
 
