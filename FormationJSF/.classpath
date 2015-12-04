@@ -24,5 +24,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/FormationJPA"/>
+	<classpathentry kind="lib" path="C:/eclipse/plugins/javax.xml.rpc_1.1.0.v201209140446/lib/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/plugins/org.apache.axis_1.4.0.v201411182030/lib/axis.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

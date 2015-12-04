@@ -1,4 +1,11 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+encoding//src/main/java/com/m2i/formation/jsf/managedBeans/BookTO.java=UTF-8
+encoding//src/main/java/com/m2i/formation/jsf/webService/HelloService.java=UTF-8
+encoding//src/main/java/com/m2i/formation/jsf/webService/HelloServiceService.java=UTF-8
+encoding//src/main/java/com/m2i/formation/jsf/webService/HelloServiceServiceLocator.java=UTF-8
+encoding//src/main/java/com/m2i/formation/jsf/webService/HelloServiceSoapBindingImpl.java=UTF-8
+encoding//src/main/java/com/m2i/formation/jsf/webService/HelloServiceSoapBindingSkeleton.java=UTF-8
+encoding//src/main/java/com/m2i/formation/jsf/webService/HelloServiceSoapBindingStub.java=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8

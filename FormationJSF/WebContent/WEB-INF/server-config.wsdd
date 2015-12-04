@@ -33,24 +33,15 @@
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
  <ns1:service name="HelloService" provider="java:RPC" style="wrapped" use="literal">
-  <ns3:operation name="getBook" qname="ns1:getBook" returnQName="ns1:getBookReturn" returnType="ns2:BookTO" soapAction="" xmlns:ns1="http://webService.jsf.formation.m2i.com" xmlns:ns2="http://managedBeans.jsf.formation.m2i.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
-   <ns3:parameter qname="ns1:id" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns3:parameter qname="ns1:title" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns3:parameter qname="ns1:price" type="xsd:double" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  </ns3:operation>
-  <ns1:operation name="getById" qname="ns3:getById" returnQName="ns3:getByIdReturn" returnType="ns4:BookTO" soapAction="" xmlns:ns3="http://webService.jsf.formation.m2i.com" xmlns:ns4="http://managedBeans.jsf.formation.m2i.com">
-   <ns1:parameter qname="ns3:id" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  </ns1:operation>
-  <ns1:operation name="getHello" qname="ns5:getHello" returnQName="ns5:getHelloReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://webService.jsf.formation.m2i.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:parameter name="allowedMethods" value="getBook getById getHello"/>
+  <ns1:parameter name="allowedMethods" value="*"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="HelloService"/>
-  <ns1:parameter name="className" value="com.m2i.formation.jsf.webService.HelloService"/>
+  <ns1:parameter name="className" value="com.m2i.formation.jsf.webService.HelloServiceSoapBindingSkeleton"/>
   <ns1:parameter name="wsdlServicePort" value="HelloService"/>
   <ns1:parameter name="schemaQualified" value="http://webService.jsf.formation.m2i.com,http://managedBeans.jsf.formation.m2i.com"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://webService.jsf.formation.m2i.com"/>
   <ns1:parameter name="wsdlServiceElement" value="HelloServiceService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns6:BookTO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.m2i.formation.jsf.managedBeans.BookTO" xmlns:ns6="http://managedBeans.jsf.formation.m2i.com"/>
+  <ns2:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns1:BookTO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.m2i.formation.jsf.managedBeans.BookTO" xmlns:ns1="http://managedBeans.jsf.formation.m2i.com" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

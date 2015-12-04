@@ -20,13 +20,13 @@
       <parameter name="className" value="com.m2i.formation.jsf.webService.HelloServiceSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="HelloService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getById" qname="operNS:getById" xmlns:operNS="http://webService.jsf.formation.m2i.com" returnQName="retNS:getByIdReturn" xmlns:retNS="http://webService.jsf.formation.m2i.com" returnType="rtns:BookTO" xmlns:rtns="http://managedBeans.jsf.formation.m2i.com" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://webService.jsf.formation.m2i.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="getBook" qname="operNS:getBook" xmlns:operNS="http://webService.jsf.formation.m2i.com" returnQName="retNS:getBookReturn" xmlns:retNS="http://webService.jsf.formation.m2i.com" returnType="rtns:BookTO" xmlns:rtns="http://managedBeans.jsf.formation.m2i.com" soapAction="" >
         <parameter qname="pns:id" xmlns:pns="http://webService.jsf.formation.m2i.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:title" xmlns:pns="http://webService.jsf.formation.m2i.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:price" xmlns:pns="http://webService.jsf.formation.m2i.com" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getById" qname="operNS:getById" xmlns:operNS="http://webService.jsf.formation.m2i.com" returnQName="retNS:getByIdReturn" xmlns:retNS="http://webService.jsf.formation.m2i.com" returnType="rtns:BookTO" xmlns:rtns="http://managedBeans.jsf.formation.m2i.com" soapAction="" >
-        <parameter qname="pns:id" xmlns:pns="http://webService.jsf.formation.m2i.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="getHello" qname="operNS:getHello" xmlns:operNS="http://webService.jsf.formation.m2i.com" returnQName="retNS:getHelloReturn" xmlns:retNS="http://webService.jsf.formation.m2i.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
       </operation>
